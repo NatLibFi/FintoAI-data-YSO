@@ -1,0 +1,4 @@
+[cache]
+    dir = /data/dvc-cache/FintoAI-data-YSO
+    shared = group
+    type = symlink
