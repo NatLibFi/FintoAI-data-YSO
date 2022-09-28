@@ -1,0 +1,11 @@
+md5: 129d40b175f5d8a47fe7ca7ef7d25712
+deps:
+- md5: 4e970e8206aa0b8db67cf8e29bac8c4b.dir
+  size: 100089232
+  nfiles: 932
+  path: /data/Annif-corpora-local/fulltext-train/en/vapaakappaleet-orig
+outs:
+- md5: 4e970e8206aa0b8db67cf8e29bac8c4b.dir
+  size: 100089232
+  nfiles: 932
+  path: vapaakappaleet-orig

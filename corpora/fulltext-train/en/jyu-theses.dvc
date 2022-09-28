@@ -1,0 +1,11 @@
+md5: 44f59e5cc4c39a8670016d5f2a25b7a5
+deps:
+- md5: a308bd8589e20effd2b3a850675172a2.dir
+  size: 119290557
+  nfiles: 998
+  path: /data/Annif-corpora-local/fulltext-train/en/jyu-theses
+outs:
+- md5: a308bd8589e20effd2b3a850675172a2.dir
+  size: 119290557
+  nfiles: 998
+  path: jyu-theses

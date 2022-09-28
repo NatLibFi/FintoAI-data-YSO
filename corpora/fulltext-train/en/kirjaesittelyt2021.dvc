@@ -1,0 +1,11 @@
+md5: 8a5359e6bf700b213ad5a81efc78a103
+deps:
+- md5: 5d0e5a63612c5a14a9900a59a20234c8.dir
+  size: 1125736
+  nfiles: 1652
+  path: /data/Annif-corpora-local/fulltext-train/en/kirjaesittelyt2021
+outs:
+- md5: 5d0e5a63612c5a14a9900a59a20234c8.dir
+  size: 1125736
+  nfiles: 1652
+  path: kirjaesittelyt2021
