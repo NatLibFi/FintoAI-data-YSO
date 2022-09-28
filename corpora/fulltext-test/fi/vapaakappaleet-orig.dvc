@@ -1,0 +1,11 @@
+md5: 379c76459ffec69d77ee56c5f5cbe370
+deps:
+- md5: ea34a6a16b98b497edb2ea21cf41bb96.dir
+  size: 226413101
+  nfiles: 2080
+  path: /data/Annif-corpora-local/vapaakappaleet-orig/fi/test/
+outs:
+- md5: ea34a6a16b98b497edb2ea21cf41bb96.dir
+  size: 226413101
+  nfiles: 2080
+  path: vapaakappaleet-orig

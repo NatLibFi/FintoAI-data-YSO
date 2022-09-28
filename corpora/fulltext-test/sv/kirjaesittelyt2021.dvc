@@ -1,0 +1,11 @@
+md5: 7313f0260f2670427693fc1e99aadb52
+deps:
+- md5: 1f585acdc2b842ff16a5f96afec51e69.dir
+  size: 628469
+  nfiles: 1120
+  path: /data/Annif-corpora-restricted/kirjaesittelyt2021/yso/swe/test
+outs:
+- md5: 1f585acdc2b842ff16a5f96afec51e69.dir
+  size: 628469
+  nfiles: 1120
+  path: kirjaesittelyt2021

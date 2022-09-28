@@ -1,0 +1,11 @@
+md5: 6c30730d69135b342d6bf9cb8db052c7
+deps:
+- md5: 1ad3154f64e93094f0e27c9a13fee37b.dir
+  size: 70776222
+  nfiles: 603
+  path: /data/Annif-corpora/fulltext/jyu-theses/eng-test/
+outs:
+- md5: 1ad3154f64e93094f0e27c9a13fee37b.dir
+  size: 70776222
+  nfiles: 603
+  path: jyu-theses
