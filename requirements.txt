@@ -1,0 +1,1 @@
+annif[fasttext,omikuji,nn,voikko]==0.59.*
