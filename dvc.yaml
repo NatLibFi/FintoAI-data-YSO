@@ -32,3 +32,48 @@ stages:
       - data/vocabs/yso
       outs:
       - data/projects/yso-mllm-${item}
+  # Train Omikuji Bonsai projects
+  train-omikuji:
+    foreach:
+      - fi
+      - sv
+      - en
+    do:
+      cmd: venv/bin/annif train yso-bonsai-${item} corpora/shorttext-train/${item}/yso-finna-${item}*.tsv.gz -d 1000
+      deps:
+      - venv-installed
+      - corpora/shorttext-train/${item}/
+      - data/vocabs/yso
+      outs:
+      - data/projects/yso-bonsai-${item}
+  # Train fasttext projects
+  train-fasttext:
+    foreach:
+      - fi
+      - sv
+      - en
+    do:
+      cmd: venv/bin/annif train yso-fasttext-${item} corpora/shorttext-train/${item}/yso-finna-${item}*.tsv.gz -d 1000
+      deps:
+      - venv-installed
+      - corpora/shorttext-train/${item}/
+      - data/vocabs/yso
+      outs:
+      - data/projects/yso-fasttext-${item}
+  # Train nn-ensemble projects
+  train-nn-ensemble:
+    foreach:
+      - fi
+      - sv
+      - en
+    do:
+      cmd: venv/bin/annif train yso-${item} corpora/fulltext-train/${item}/*/ -j 16 -d 100
+      deps:
+      - venv-installed
+      - corpora/fulltext-train/${item}
+      - data/vocabs/yso
+      - data/projects/yso-mllm-${item}
+      - data/projects/yso-bonsai-${item}
+      - data/projects/yso-fasttext-${item}
+      outs:
+      - data/projects/yso-${item}
