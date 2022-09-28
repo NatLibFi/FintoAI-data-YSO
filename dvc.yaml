@@ -10,3 +10,11 @@ stages:
     outs:
     - venv-installed:
         cache: false
+  # Load YSO vocabulary
+  load-vocab:
+    cmd: venv/bin/annif load-vocab --force yso corpora/yso-skos.ttl
+    deps:
+    - venv-installed
+    - corpora/yso-skos.ttl
+    outs:
+    - data/vocabs/yso

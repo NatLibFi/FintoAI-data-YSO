@@ -14,3 +14,17 @@ stages:
     - path: venv-installed
       md5: 2e6baa8289dac9e06cb525999eb39a70
       size: 42
+  load-vocab:
+    cmd: venv/bin/annif load-vocab --force yso corpora/yso-skos.ttl
+    deps:
+    - path: corpora/yso-skos.ttl
+      md5: 1f06f5626ff39cd84a7c49000164fdf2
+      size: 25624392
+    - path: venv-installed
+      md5: 2e6baa8289dac9e06cb525999eb39a70
+      size: 42
+    outs:
+    - path: data/vocabs/yso
+      md5: 193a5d46cd7e8a8f10d54611c8717b2f.dir
+      size: 50343917
+      nfiles: 3
