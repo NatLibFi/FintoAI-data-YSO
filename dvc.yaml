@@ -77,3 +77,81 @@ stages:
       - data/projects/yso-fasttext-${item}
       outs:
       - data/projects/yso-${item}
+  # Evaluate Finnish projects
+  eval-fi:
+    foreach:
+      - mllm
+      - bonsai
+      - fasttext
+    do:
+      cmd:
+      - venv/bin/annif eval yso-${item}-fi -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-fi-jyu-theses.json corpora/fulltext-test/fi/jyu-theses/ -d 10
+      - venv/bin/annif eval yso-${item}-fi -j 6 -m F1@5 -m NDCG --metrics-file reports/${item}-fi-kirjaesittelyt2021.json corpora/fulltext-test/fi/kirjaesittelyt2021/ -d 10
+      - venv/bin/annif eval yso-${item}-fi -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-fi-kirjastonhoitaja.json corpora/fulltext-test/fi/kirjastonhoitaja/ -d 10
+      - venv/bin/annif eval yso-${item}-fi -j 4 -m F1@5 -m NDCG --metrics-file reports/${item}-fi-satakunnan-kansa.json corpora/fulltext-test/fi/satakunnan-kansa-?/ -d 10
+      - venv/bin/annif eval yso-${item}-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/${item}-fi-vapaakappaleet-orig.json corpora/fulltext-test/fi/vapaakappaleet-orig/ -d 10
+      deps:
+      - venv-installed
+      - corpora/fulltext-test/fi
+      - data/projects/yso-${item}-fi
+      metrics:
+      - reports/${item}-fi-jyu-theses.json:
+          cache: false
+      - reports/${item}-fi-kirjaesittelyt2021.json:
+          cache: false
+      - reports/${item}-fi-kirjastonhoitaja.json:
+          cache: false
+      - reports/${item}-fi-satakunnan-kansa.json:
+          cache: false
+      - reports/${item}-fi-vapaakappaleet-orig.json:
+          cache: false
+  # Evaluate Swedish projects
+  eval-sv:
+    foreach:
+      - mllm
+      - bonsai
+      - fasttext
+    do:
+      cmd:
+      - venv/bin/annif eval yso-${item}-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-sv-abo-theses.json corpora/fulltext-test/sv/abo-theses/ -d 10
+      - venv/bin/annif eval yso-${item}-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-sv-jyu-theses.json corpora/fulltext-test/sv/jyu-theses/ -d 10
+      - venv/bin/annif eval yso-${item}-sv -j 6 -m F1@5 -m NDCG --metrics-file reports/${item}-sv-kirjaesittelyt2021.json corpora/fulltext-test/sv/kirjaesittelyt2021/ -d 10
+      - venv/bin/annif eval yso-${item}-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/${item}-sv-vapaakappaleet-orig.json corpora/fulltext-test/sv/vapaakappaleet-orig/ -d 10
+      deps:
+      - venv-installed
+      - corpora/fulltext-test/sv
+      - data/projects/yso-${item}-sv
+      metrics:
+      - reports/${item}-sv-abo-theses.json:
+          cache: false
+      - reports/${item}-sv-jyu-theses.json:
+          cache: false
+      - reports/${item}-sv-kirjaesittelyt2021.json:
+          cache: false
+      - reports/${item}-sv-vapaakappaleet-orig.json:
+          cache: false
+  # Evaluate English projects
+  eval-en:
+    foreach:
+      - mllm
+      - bonsai
+      - fasttext
+    do:
+      cmd:
+      - venv/bin/annif eval yso-${item}-en -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-en-abo-theses.json corpora/fulltext-test/sv/abo-theses/ -d 10
+      - venv/bin/annif eval yso-${item}-en -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-en-jyu-theses.json corpora/fulltext-test/sv/jyu-theses/ -d 10
+      - venv/bin/annif eval yso-${item}-en -j 6 -m F1@5 -m NDCG --metrics-file reports/${item}-en-kirjaesittelyt2021.json corpora/fulltext-test/sv/kirjaesittelyt2021/ -d 10
+      - venv/bin/annif eval yso-${item}-en -j 10 -m F1@5 -m NDCG --metrics-file reports/${item}-en-vapaakappaleet-orig.json corpora/fulltext-test/sv/vapaakappaleet-orig/ -d 10
+      deps:
+      - venv-installed
+      - corpora/fulltext-test/en
+      - data/projects/yso-${item}-en
+      metrics:
+      - reports/${item}-en-abo-theses.json:
+          cache: false
+      - reports/${item}-en-jyu-theses.json:
+          cache: false
+      - reports/${item}-en-kirjaesittelyt2021.json:
+          cache: false
+      - reports/${item}-en-vapaakappaleet-orig.json:
+          cache: false
