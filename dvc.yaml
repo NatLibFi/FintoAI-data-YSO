@@ -18,3 +18,17 @@ stages:
     - corpora/yso-skos.ttl
     outs:
     - data/vocabs/yso
+  # Train MLLM projects
+  train-mllm:
+    foreach:
+      - fi
+      - sv
+      - en
+    do:
+      cmd: venv/bin/annif train yso-mllm-${item} corpora/fulltext-train/${item}/*/ -j 16
+      deps:
+      - venv-installed
+      - corpora/fulltext-train/${item}
+      - data/vocabs/yso
+      outs:
+      - data/projects/yso-mllm-${item}

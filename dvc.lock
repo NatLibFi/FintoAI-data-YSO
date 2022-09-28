@@ -28,3 +28,60 @@ stages:
       md5: 193a5d46cd7e8a8f10d54611c8717b2f.dir
       size: 50343917
       nfiles: 3
+  train-mllm@fi:
+    cmd: venv/bin/annif train yso-mllm-fi corpora/fulltext-train/fi/*/ -j 16
+    deps:
+    - path: corpora/fulltext-train/fi
+      md5: b013b3cfe61edb4fb3cfbbab28eb9b9a.dir
+      size: 413806076
+      nfiles: 5583
+    - path: data/vocabs/yso
+      md5: 193a5d46cd7e8a8f10d54611c8717b2f.dir
+      size: 50343917
+      nfiles: 3
+    - path: venv-installed
+      md5: 2e6baa8289dac9e06cb525999eb39a70
+      size: 42
+    outs:
+    - path: data/projects/yso-mllm-fi
+      md5: 4e8316818583952def1c72505b8231f5.dir
+      size: 36084129
+      nfiles: 2
+  train-mllm@en:
+    cmd: venv/bin/annif train yso-mllm-en corpora/fulltext-train/en/*/ -j 16
+    deps:
+    - path: corpora/fulltext-train/en
+      md5: fe1e9934eb39430db019626b55f8acf5.dir
+      size: 267075899
+      nfiles: 4574
+    - path: data/vocabs/yso
+      md5: 193a5d46cd7e8a8f10d54611c8717b2f.dir
+      size: 50343917
+      nfiles: 3
+    - path: venv-installed
+      md5: 2e6baa8289dac9e06cb525999eb39a70
+      size: 42
+    outs:
+    - path: data/projects/yso-mllm-en
+      md5: a6bc84da58cffd5ac7f69e3977f80460.dir
+      size: 38626196
+      nfiles: 2
+  train-mllm@sv:
+    cmd: venv/bin/annif train yso-mllm-sv corpora/fulltext-train/sv/*/ -j 16
+    deps:
+    - path: corpora/fulltext-train/sv
+      md5: c5fbd3ee6cd3fce7911076bcbafb8678.dir
+      size: 154593040
+      nfiles: 3749
+    - path: data/vocabs/yso
+      md5: 193a5d46cd7e8a8f10d54611c8717b2f.dir
+      size: 50343917
+      nfiles: 3
+    - path: venv-installed
+      md5: 2e6baa8289dac9e06cb525999eb39a70
+      size: 42
+    outs:
+    - path: data/projects/yso-mllm-sv
+      md5: 08bd1a8b25be35e1b07a19ce726151ea.dir
+      size: 19908596
+      nfiles: 2
