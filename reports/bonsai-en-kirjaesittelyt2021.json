@@ -1,5 +1,5 @@
 {
-  "F1@5": 0.0,
-  "NDCG": 0.0,
-  "Documents_evaluated": 10
+  "F1@5": 0.4711221313372467,
+  "NDCG": 0.6505713661475921,
+  "Documents_evaluated": 447
 }

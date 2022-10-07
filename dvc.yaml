@@ -138,10 +138,10 @@ stages:
       - fasttext
     do:
       cmd:
-      - venv/bin/annif eval yso-${item}-en -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-en-abo-theses.json corpora/fulltext-test/sv/abo-theses/
-      - venv/bin/annif eval yso-${item}-en -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-en-jyu-theses.json corpora/fulltext-test/sv/jyu-theses/
-      - venv/bin/annif eval yso-${item}-en -j 6 -m F1@5 -m NDCG --metrics-file reports/${item}-en-kirjaesittelyt2021.json corpora/fulltext-test/sv/kirjaesittelyt2021/
-      - venv/bin/annif eval yso-${item}-en -j 10 -m F1@5 -m NDCG --metrics-file reports/${item}-en-vapaakappaleet-orig.json corpora/fulltext-test/sv/vapaakappaleet-orig/
+      - venv/bin/annif eval yso-${item}-en -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-en-abo-theses.json corpora/fulltext-test/en/abo-theses/
+      - venv/bin/annif eval yso-${item}-en -j 1 -m F1@5 -m NDCG --metrics-file reports/${item}-en-jyu-theses.json corpora/fulltext-test/en/jyu-theses/
+      - venv/bin/annif eval yso-${item}-en -j 6 -m F1@5 -m NDCG --metrics-file reports/${item}-en-kirjaesittelyt2021.json corpora/fulltext-test/en/kirjaesittelyt2021/
+      - venv/bin/annif eval yso-${item}-en -j 10 -m F1@5 -m NDCG --metrics-file reports/${item}-en-vapaakappaleet-orig.json corpora/fulltext-test/en/vapaakappaleet-orig/
       deps:
       - venv-installed
       - corpora/fulltext-test/en
