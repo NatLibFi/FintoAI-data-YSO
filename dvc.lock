@@ -622,3 +622,443 @@ stages:
     - path: reports/bonsai-en-vapaakappaleet-orig.json
       md5: 2324260b996366b775fbf3c38a14a309
       size: 93
+  eval-sv@fasttext-sv:
+    cmd:
+    - venv/bin/annif eval yso-fasttext-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/fasttext-sv-abo-theses.json
+      corpora/fulltext-test/sv/abo-theses/
+    - venv/bin/annif eval yso-fasttext-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/fasttext-sv-jyu-theses.json
+      corpora/fulltext-test/sv/jyu-theses/
+    - venv/bin/annif eval yso-fasttext-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-sv-kirjaesittelyt2021.json
+      corpora/fulltext-test/sv/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-fasttext-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-sv-vapaakappaleet-orig.json
+      corpora/fulltext-test/sv/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/sv
+      md5: 2d29064639aa0f8900e4bf58a781826e.dir
+      size: 66510456
+      nfiles: 1876
+    - path: data/projects/yso-fasttext-sv
+      md5: 8d272558b0ec13606c0027af74be47e8.dir
+      size: 4915577395
+      nfiles: 2
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/fasttext-sv-abo-theses.json
+      md5: ea4e5c8d3c72e853ce0bda1757cd4e41
+      size: 93
+    - path: reports/fasttext-sv-jyu-theses.json
+      md5: 8e73efa922698dd1fa968f6dba4c779c
+      size: 92
+    - path: reports/fasttext-sv-kirjaesittelyt2021.json
+      md5: 42fa4ff3fa951ecf07ce404a1c68d990
+      size: 93
+    - path: reports/fasttext-sv-vapaakappaleet-orig.json
+      md5: ac8102682f7b1b003967c2ad250c61d8
+      size: 94
+  eval-sv@sv:
+    cmd:
+    - venv/bin/annif eval yso-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/sv-abo-theses.json
+      corpora/fulltext-test/sv/abo-theses/
+    - venv/bin/annif eval yso-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/sv-jyu-theses.json
+      corpora/fulltext-test/sv/jyu-theses/
+    - venv/bin/annif eval yso-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/sv-kirjaesittelyt2021.json
+      corpora/fulltext-test/sv/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/sv-vapaakappaleet-orig.json
+      corpora/fulltext-test/sv/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/sv
+      md5: 2d29064639aa0f8900e4bf58a781826e.dir
+      size: 66510456
+      nfiles: 1876
+    - path: data/projects/yso-sv
+      md5: ae67e474cf16ea00e27a82aab743aa25.dir
+      size: 1256008932
+      nfiles: 3
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/sv-abo-theses.json
+      md5: 1e60a9221f4a22f9610ed0f00f0d47a4
+      size: 93
+    - path: reports/sv-jyu-theses.json
+      md5: 71740a4aed7be5b46d9a3711360082f5
+      size: 91
+    - path: reports/sv-kirjaesittelyt2021.json
+      md5: e386bf8472d472e95c68ca640223816e
+      size: 93
+    - path: reports/sv-vapaakappaleet-orig.json
+      md5: bae8675f9d3245ce91d8390128881184
+      size: 92
+  eval-en@bonsai-en:
+    cmd:
+    - venv/bin/annif eval yso-bonsai-en -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-en-abo-theses.json
+      corpora/fulltext-test/en/abo-theses/
+    - venv/bin/annif eval yso-bonsai-en -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-en-jyu-theses.json
+      corpora/fulltext-test/en/jyu-theses/
+    - venv/bin/annif eval yso-bonsai-en -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-en-kirjaesittelyt2021.json
+      corpora/fulltext-test/en/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-bonsai-en -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-en-vapaakappaleet-orig.json
+      corpora/fulltext-test/en/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/en
+      md5: e6fd23c87a07631f24e52f568fad23ea.dir
+      size: 331772939
+      nfiles: 3825
+    - path: data/projects/yso-bonsai-en
+      md5: 7b3c8486bbce25710e969ce706e9ac71.dir
+      size: 2246619174
+      nfiles: 6
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/bonsai-en-abo-theses.json
+      md5: 109beeb488b023241e61fb4fddba1d35
+      size: 93
+    - path: reports/bonsai-en-jyu-theses.json
+      md5: f917141ae8af29e6834359c35998e98d
+      size: 92
+    - path: reports/bonsai-en-kirjaesittelyt2021.json
+      md5: 711601791fe7245a961e0bd5fdb6dccd
+      size: 92
+    - path: reports/bonsai-en-vapaakappaleet-orig.json
+      md5: 2324260b996366b775fbf3c38a14a309
+      size: 93
+  eval-en@en:
+    cmd:
+    - venv/bin/annif eval yso-en -j 1 -m F1@5 -m NDCG --metrics-file reports/en-abo-theses.json
+      corpora/fulltext-test/en/abo-theses/
+    - venv/bin/annif eval yso-en -j 1 -m F1@5 -m NDCG --metrics-file reports/en-jyu-theses.json
+      corpora/fulltext-test/en/jyu-theses/
+    - venv/bin/annif eval yso-en -j 10 -m F1@5 -m NDCG --metrics-file reports/en-kirjaesittelyt2021.json
+      corpora/fulltext-test/en/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-en -j 10 -m F1@5 -m NDCG --metrics-file reports/en-vapaakappaleet-orig.json
+      corpora/fulltext-test/en/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/en
+      md5: e6fd23c87a07631f24e52f568fad23ea.dir
+      size: 331772939
+      nfiles: 3825
+    - path: data/projects/yso-en
+      md5: 24577b123f81a54672f8c88c855003f9.dir
+      size: 1256008932
+      nfiles: 3
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/en-abo-theses.json
+      md5: 5f72fd2a26a115c36bd07c8ce1f95d60
+      size: 91
+    - path: reports/en-jyu-theses.json
+      md5: 2af5c4fd7a98e7a0736dbe243f0ff140
+      size: 92
+    - path: reports/en-kirjaesittelyt2021.json
+      md5: d1a505bdb19681e3e9ab767f253b5a94
+      size: 92
+    - path: reports/en-vapaakappaleet-orig.json
+      md5: fe1db93f0ecd8bfd3d254196644440e6
+      size: 93
+  eval-en@fasttext-en:
+    cmd:
+    - venv/bin/annif eval yso-fasttext-en -j 1 -m F1@5 -m NDCG --metrics-file reports/fasttext-en-abo-theses.json
+      corpora/fulltext-test/en/abo-theses/
+    - venv/bin/annif eval yso-fasttext-en -j 1 -m F1@5 -m NDCG --metrics-file reports/fasttext-en-jyu-theses.json
+      corpora/fulltext-test/en/jyu-theses/
+    - venv/bin/annif eval yso-fasttext-en -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-en-kirjaesittelyt2021.json
+      corpora/fulltext-test/en/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-fasttext-en -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-en-vapaakappaleet-orig.json
+      corpora/fulltext-test/en/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/en
+      md5: e6fd23c87a07631f24e52f568fad23ea.dir
+      size: 331772939
+      nfiles: 3825
+    - path: data/projects/yso-fasttext-en
+      md5: 625be5253a0eee61c44741e63acb1021.dir
+      size: 4077282108
+      nfiles: 2
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/fasttext-en-abo-theses.json
+      md5: 66940ff0ea42d44ab1b429905c51858a
+      size: 93
+    - path: reports/fasttext-en-jyu-theses.json
+      md5: 8bdfe2503c1a002d31121f48daf493db
+      size: 92
+    - path: reports/fasttext-en-kirjaesittelyt2021.json
+      md5: baad9e2130658cd53bddea24d0c97454
+      size: 93
+    - path: reports/fasttext-en-vapaakappaleet-orig.json
+      md5: a8060ee8a76b5b3e7a5134d0edfdc5d9
+      size: 92
+  eval-fi@fasttext-fi:
+    cmd:
+    - venv/bin/annif eval yso-fasttext-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-fi-jyu-theses.json
+      corpora/fulltext-test/fi/jyu-theses/
+    - venv/bin/annif eval yso-fasttext-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-fi-kirjaesittelyt2021.json
+      corpora/fulltext-test/fi/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-fasttext-fi -j 1 -m F1@5 -m NDCG --metrics-file reports/fasttext-fi-kirjastonhoitaja.json
+      corpora/fulltext-test/fi/kirjastonhoitaja/
+    - venv/bin/annif eval yso-fasttext-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-fi-satakunnan-kansa.json
+      corpora/fulltext-test/fi/satakunnan-kansa-?/
+    - venv/bin/annif eval yso-fasttext-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-fi-vapaakappaleet-orig.json
+      corpora/fulltext-test/fi/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/fi
+      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
+      size: 385626157
+      nfiles: 7267
+    - path: data/projects/yso-fasttext-fi
+      md5: 0f5c9eb966671d610e8d8556b270652c.dir
+      size: 7519964475
+      nfiles: 2
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/fasttext-fi-jyu-theses.json
+      md5: 339a05b2faa098074a7717ef6677048b
+      size: 93
+    - path: reports/fasttext-fi-kirjaesittelyt2021.json
+      md5: b0425400c2513d8580bf726bc0b487d3
+      size: 94
+    - path: reports/fasttext-fi-kirjastonhoitaja.json
+      md5: 7fe1e06726e05effef46a1cb97078d72
+      size: 92
+    - path: reports/fasttext-fi-satakunnan-kansa.json
+      md5: 63b1b03ad124c17bc3570188f1855ec9
+      size: 93
+    - path: reports/fasttext-fi-vapaakappaleet-orig.json
+      md5: 0acd6e385633742bd18513109a5a87dc
+      size: 94
+  eval-fi@mllm-fi:
+    cmd:
+    - venv/bin/annif eval yso-mllm-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-fi-jyu-theses.json
+      corpora/fulltext-test/fi/jyu-theses/
+    - venv/bin/annif eval yso-mllm-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-fi-kirjaesittelyt2021.json
+      corpora/fulltext-test/fi/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-mllm-fi -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-fi-kirjastonhoitaja.json
+      corpora/fulltext-test/fi/kirjastonhoitaja/
+    - venv/bin/annif eval yso-mllm-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-fi-satakunnan-kansa.json
+      corpora/fulltext-test/fi/satakunnan-kansa-?/
+    - venv/bin/annif eval yso-mllm-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-fi-vapaakappaleet-orig.json
+      corpora/fulltext-test/fi/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/fi
+      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
+      size: 385626157
+      nfiles: 7267
+    - path: data/projects/yso-mllm-fi
+      md5: c42dd794bb146ecf7cf60e5f49167ab2.dir
+      size: 36078206
+      nfiles: 2
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/mllm-fi-jyu-theses.json
+      md5: 017241308807e76f5c4ecc675c280bfa
+      size: 92
+    - path: reports/mllm-fi-kirjaesittelyt2021.json
+      md5: b289df9d0158a0e8c6cd74dd2df7d9c2
+      size: 94
+    - path: reports/mllm-fi-kirjastonhoitaja.json
+      md5: 1ed10e3905a72ffe5181bc74ec27599d
+      size: 93
+    - path: reports/mllm-fi-satakunnan-kansa.json
+      md5: 7100b02bb18dad3f8e8d073b7bff9e50
+      size: 93
+    - path: reports/mllm-fi-vapaakappaleet-orig.json
+      md5: bb3ed842b8468708c1c064452b6b24f1
+      size: 93
+  eval-fi@bonsai-fi:
+    cmd:
+    - venv/bin/annif eval yso-bonsai-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-fi-jyu-theses.json
+      corpora/fulltext-test/fi/jyu-theses/
+    - venv/bin/annif eval yso-bonsai-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-fi-kirjaesittelyt2021.json
+      corpora/fulltext-test/fi/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-bonsai-fi -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-fi-kirjastonhoitaja.json
+      corpora/fulltext-test/fi/kirjastonhoitaja/
+    - venv/bin/annif eval yso-bonsai-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-fi-satakunnan-kansa.json
+      corpora/fulltext-test/fi/satakunnan-kansa-?/
+    - venv/bin/annif eval yso-bonsai-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-fi-vapaakappaleet-orig.json
+      corpora/fulltext-test/fi/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/fi
+      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
+      size: 385626157
+      nfiles: 7267
+    - path: data/projects/yso-bonsai-fi
+      md5: e065094c56ff3a61e2a4648e47156c8f.dir
+      size: 5277448954
+      nfiles: 6
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/bonsai-fi-jyu-theses.json
+      md5: 660095be4380591aa8c7f839ffbf1aa4
+      size: 92
+    - path: reports/bonsai-fi-kirjaesittelyt2021.json
+      md5: 61540b3360540911b4ec3a934abb74ca
+      size: 94
+    - path: reports/bonsai-fi-kirjastonhoitaja.json
+      md5: 95696330bd44571520752bdb4a460287
+      size: 93
+    - path: reports/bonsai-fi-satakunnan-kansa.json
+      md5: 2bb5923811b0760695cb5ad2465469e5
+      size: 93
+    - path: reports/bonsai-fi-vapaakappaleet-orig.json
+      md5: e772a46ccd7bde3cce12b9edf1484b41
+      size: 93
+  eval-en@mllm-en:
+    cmd:
+    - venv/bin/annif eval yso-mllm-en -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-en-abo-theses.json
+      corpora/fulltext-test/en/abo-theses/
+    - venv/bin/annif eval yso-mllm-en -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-en-jyu-theses.json
+      corpora/fulltext-test/en/jyu-theses/
+    - venv/bin/annif eval yso-mllm-en -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-en-kirjaesittelyt2021.json
+      corpora/fulltext-test/en/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-mllm-en -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-en-vapaakappaleet-orig.json
+      corpora/fulltext-test/en/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/en
+      md5: e6fd23c87a07631f24e52f568fad23ea.dir
+      size: 331772939
+      nfiles: 3825
+    - path: data/projects/yso-mllm-en
+      md5: 03fe928341b019387a004ce33b85b220.dir
+      size: 38643312
+      nfiles: 2
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/mllm-en-abo-theses.json
+      md5: b293ba74e7f65fee4b346e2fa875d570
+      size: 92
+    - path: reports/mllm-en-jyu-theses.json
+      md5: c8bdc5f4f57799201b97ed62191c608c
+      size: 92
+    - path: reports/mllm-en-kirjaesittelyt2021.json
+      md5: 121d0ac40869b4dd7b0a1fc6094e2c42
+      size: 94
+    - path: reports/mllm-en-vapaakappaleet-orig.json
+      md5: ce7b8315090d0028028608190364ea9a
+      size: 93
+  eval-sv@bonsai-sv:
+    cmd:
+    - venv/bin/annif eval yso-bonsai-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-sv-abo-theses.json
+      corpora/fulltext-test/sv/abo-theses/
+    - venv/bin/annif eval yso-bonsai-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-sv-jyu-theses.json
+      corpora/fulltext-test/sv/jyu-theses/
+    - venv/bin/annif eval yso-bonsai-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-sv-kirjaesittelyt2021.json
+      corpora/fulltext-test/sv/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-bonsai-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-sv-vapaakappaleet-orig.json
+      corpora/fulltext-test/sv/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/sv
+      md5: 2d29064639aa0f8900e4bf58a781826e.dir
+      size: 66510456
+      nfiles: 1876
+    - path: data/projects/yso-bonsai-sv
+      md5: 325628ed10b5330b42fdf93489ab870d.dir
+      size: 1035735788
+      nfiles: 6
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/bonsai-sv-abo-theses.json
+      md5: 65fd5a684e967d01b8527489b6ca38c3
+      size: 93
+    - path: reports/bonsai-sv-jyu-theses.json
+      md5: 69084213079115f7f97cf16115d58010
+      size: 91
+    - path: reports/bonsai-sv-kirjaesittelyt2021.json
+      md5: 1c2fe10783ce03e22dede97beb120c65
+      size: 93
+    - path: reports/bonsai-sv-vapaakappaleet-orig.json
+      md5: b413d239d447d4bf3b57510d3503de87
+      size: 93
+  eval-sv@mllm-sv:
+    cmd:
+    - venv/bin/annif eval yso-mllm-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-sv-abo-theses.json
+      corpora/fulltext-test/sv/abo-theses/
+    - venv/bin/annif eval yso-mllm-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-sv-jyu-theses.json
+      corpora/fulltext-test/sv/jyu-theses/
+    - venv/bin/annif eval yso-mllm-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-sv-kirjaesittelyt2021.json
+      corpora/fulltext-test/sv/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-mllm-sv -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-sv-vapaakappaleet-orig.json
+      corpora/fulltext-test/sv/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/sv
+      md5: 2d29064639aa0f8900e4bf58a781826e.dir
+      size: 66510456
+      nfiles: 1876
+    - path: data/projects/yso-mllm-sv
+      md5: fc2e344bac4abd0048c7c286ffdba0eb.dir
+      size: 19904278
+      nfiles: 2
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/mllm-sv-abo-theses.json
+      md5: 0d6f871b92dfb263c56e17f644e99513
+      size: 92
+    - path: reports/mllm-sv-jyu-theses.json
+      md5: 81f8eb0a6908169aeb2ba236a0baf3f7
+      size: 91
+    - path: reports/mllm-sv-kirjaesittelyt2021.json
+      md5: 52bd3c980952bea81514ea41c1a0376c
+      size: 92
+    - path: reports/mllm-sv-vapaakappaleet-orig.json
+      md5: ec892031820644822da0cb58aaef8b2c
+      size: 92
+  eval-fi@fi:
+    cmd:
+    - venv/bin/annif eval yso-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fi-jyu-theses.json
+      corpora/fulltext-test/fi/jyu-theses/
+    - venv/bin/annif eval yso-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fi-kirjaesittelyt2021.json
+      corpora/fulltext-test/fi/kirjaesittelyt2021/
+    - venv/bin/annif eval yso-fi -j 1 -m F1@5 -m NDCG --metrics-file reports/fi-kirjastonhoitaja.json
+      corpora/fulltext-test/fi/kirjastonhoitaja/
+    - venv/bin/annif eval yso-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fi-satakunnan-kansa.json
+      corpora/fulltext-test/fi/satakunnan-kansa-?/
+    - venv/bin/annif eval yso-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fi-vapaakappaleet-orig.json
+      corpora/fulltext-test/fi/vapaakappaleet-orig/
+    deps:
+    - path: corpora/fulltext-test/fi
+      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
+      size: 385626157
+      nfiles: 7267
+    - path: data/projects/yso-fi
+      md5: 0ee7c25493902fc837a800a170a5798e.dir
+      size: 1256008932
+      nfiles: 3
+    - path: venv-installed
+      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      size: 49
+    outs:
+    - path: reports/fi-jyu-theses.json
+      md5: 4c4d07aeb8ff9871898ac38f00da8277
+      size: 92
+    - path: reports/fi-kirjaesittelyt2021.json
+      md5: 7765dc3d82b844c6b053c8a8089fb88a
+      size: 93
+    - path: reports/fi-kirjastonhoitaja.json
+      md5: 56510b79011c8f4597e118895d7f493d
+      size: 93
+    - path: reports/fi-satakunnan-kansa.json
+      md5: c8d8150b774eba18b67b027cee7e0326
+      size: 90
+    - path: reports/fi-vapaakappaleet-orig.json
+      md5: f0909a6e823c9e9a2b2c417dd7a02aab
+      size: 94
