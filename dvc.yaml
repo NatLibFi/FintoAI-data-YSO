@@ -30,6 +30,9 @@ stages:
       - venv-installed
       - corpora/fulltext-train/${item}
       - data/vocabs/yso
+      params:
+      - projects.toml:
+        - yso-mllm-${item}
       outs:
       - data/projects/yso-mllm-${item}
   # Train Omikuji Bonsai projects
@@ -44,6 +47,9 @@ stages:
       - venv-installed
       - corpora/shorttext-train/${item}/
       - data/vocabs/yso
+      params:
+      - projects.toml:
+        - yso-bonsai-${item}
       outs:
       - data/projects/yso-bonsai-${item}
   # Train fasttext projects
@@ -58,6 +64,9 @@ stages:
       - venv-installed
       - corpora/shorttext-train/${item}/
       - data/vocabs/yso
+      params:
+      - projects.toml:
+        - yso-fasttext-${item}
       outs:
       - data/projects/yso-fasttext-${item}
   # Train nn-ensemble projects
@@ -75,6 +84,9 @@ stages:
       - data/projects/yso-mllm-${item}
       - data/projects/yso-bonsai-${item}
       - data/projects/yso-fasttext-${item}
+      params:
+      - projects.toml:
+        - yso-${item}
       outs:
       - data/projects/yso-${item}
   # Evaluate Finnish projects
@@ -95,6 +107,9 @@ stages:
       - venv-installed
       - corpora/fulltext-test/fi
       - data/projects/yso-${item}
+      params:
+      - projects.toml:
+        - yso-${item}
       metrics:
       - reports/${item}-jyu-theses.json:
           cache: false
@@ -123,6 +138,9 @@ stages:
       - venv-installed
       - corpora/fulltext-test/sv
       - data/projects/yso-${item}
+      params:
+      - projects.toml:
+        - yso-${item}
       metrics:
       - reports/${item}-abo-theses.json:
           cache: false
@@ -149,6 +167,9 @@ stages:
       - venv-installed
       - corpora/fulltext-test/en
       - data/projects/yso-${item}
+      params:
+      - projects.toml:
+        - yso-${item}
       metrics:
       - reports/${item}-abo-theses.json:
           cache: false
