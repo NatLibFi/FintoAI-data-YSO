@@ -1,5 +1,5 @@
-#!/bin/python3
-# Usage: 
+#!/usr/bin/env python3
+# Usage:
 # dvc metrics show | ./pivot-metrics.py
 
 import sys
