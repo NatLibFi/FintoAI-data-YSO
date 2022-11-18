@@ -48,7 +48,7 @@ backend = "mllm"
 analyzer = "snowball(english)"
 vocab = "yso"
 limit = "1000"
-transform = "limit(3000000)"
+transform = "limit(2500000)"
 access = "hidden"
 
 [yso-mllm-sv]
