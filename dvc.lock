@@ -3,8 +3,8 @@ stages:
   install:
     cmd:
     - python3 -m venv venv
-    - . venv/bin/activate && pip install -U pip wheel setuptools && pip install -r
-      requirements.txt
+    - source venv/bin/activate && pip install -U pip wheel setuptools && pip install
+      -r requirements.txt
     - cp requirements.txt venv-installed
     deps:
     - path: requirements.txt
@@ -18,279 +18,456 @@ stages:
     cmd: venv/bin/annif load-vocab --force yso corpora/yso-skos.ttl
     deps:
     - path: corpora/yso-skos.ttl
-      md5: 1f06f5626ff39cd84a7c49000164fdf2
-      size: 25624392
+      md5: 613590a41e5be5053f8f423767f575f9
+      size: 28761933
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
     outs:
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
   train-mllm@fi:
     cmd: venv/bin/annif train yso-mllm-fi corpora/fulltext-train/fi/*/ -j 16
     deps:
     - path: corpora/fulltext-train/fi
-      md5: b013b3cfe61edb4fb3cfbbab28eb9b9a.dir
-      size: 413806076
+      md5: 874b0f486716b35c32ce707fafde0b52.dir
+      size: 413859931
       nfiles: 5583
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-mllm-fi:
+          name: YSO MLLM Finnish
+          language: fi
+          backend: mllm
+          analyzer: voikko(fi)
+          vocab: yso
+          limit: '1000'
+          transform: limit(3000000)
+          access: hidden
     outs:
     - path: data/projects/yso-mllm-fi
-      md5: c42dd794bb146ecf7cf60e5f49167ab2.dir
-      size: 36078206
+      md5: 8b07e418eff2058576cffc8d7e4b8efa.dir
+      size: 35989087
       nfiles: 2
   train-mllm@en:
     cmd: venv/bin/annif train yso-mllm-en corpora/fulltext-train/en/*/ -j 16
     deps:
     - path: corpora/fulltext-train/en
-      md5: fe1e9934eb39430db019626b55f8acf5.dir
-      size: 267075899
+      md5: 117b294876c0568e5348bb01261ee204.dir
+      size: 267198009
       nfiles: 4574
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-mllm-en:
+          name: YSO MLLM English
+          language: en
+          backend: mllm
+          analyzer: snowball(english)
+          vocab: yso
+          limit: '1000'
+          transform: limit(3000000)
+          access: hidden
     outs:
     - path: data/projects/yso-mllm-en
-      md5: 03fe928341b019387a004ce33b85b220.dir
-      size: 38643312
+      md5: 4a6fd850821a5d07ab8efe2b4ce17cd3.dir
+      size: 38738951
       nfiles: 2
   train-mllm@sv:
     cmd: venv/bin/annif train yso-mllm-sv corpora/fulltext-train/sv/*/ -j 16
     deps:
     - path: corpora/fulltext-train/sv
-      md5: c5fbd3ee6cd3fce7911076bcbafb8678.dir
-      size: 154593040
+      md5: a8e6a65cc0aec6945bbb8a8d70bce90e.dir
+      size: 154698790
       nfiles: 3749
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-mllm-sv:
+          name: YSO MLLM Swedish
+          language: sv
+          backend: mllm
+          analyzer: snowball(swedish)
+          vocab: yso
+          limit: '1000'
+          transform: limit(3000000)
+          access: hidden
     outs:
     - path: data/projects/yso-mllm-sv
-      md5: fc2e344bac4abd0048c7c286ffdba0eb.dir
-      size: 19904278
+      md5: 22cf2b1f46a27e77a3edb46f1b5cd175.dir
+      size: 19414058
       nfiles: 2
   train-omikuji@sv:
     cmd: venv/bin/annif train yso-bonsai-sv corpora/shorttext-train/sv/yso-finna-sv*.tsv.gz
     deps:
     - path: corpora/shorttext-train/sv/
-      md5: 222c9a5f9bf7bfc03607572bd5feda3b.dir
-      size: 41343175
+      md5: b9edbd946f8b50d73c1b4bb7f1b0b2a3.dir
+      size: 41981684
       nfiles: 3
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-bonsai-sv:
+          name: YSO Omikuji Bonsai Swedish
+          language: sv
+          backend: omikuji
+          analyzer: snowball(swedish)
+          vocab: yso
+          cluster_balanced: 'False'
+          cluster_k: '100'
+          max_depth: '3'
+          min_df: '2'
+          ngram: '2'
+          limit: '1000'
+          transform: limit(5000)
+          access: hidden
     outs:
     - path: data/projects/yso-bonsai-sv
-      md5: 325628ed10b5330b42fdf93489ab870d.dir
-      size: 1035735788
+      md5: 314d0700e5850659195a420268b54e02.dir
+      size: 1053223791
       nfiles: 6
   train-omikuji@en:
     cmd: venv/bin/annif train yso-bonsai-en corpora/shorttext-train/en/yso-finna-en*.tsv.gz
     deps:
     - path: corpora/shorttext-train/en/
-      md5: 4dbef50d2e326e39eb1863747b369f74.dir
-      size: 95559460
+      md5: 92495bd84f872394a970093eac0edf3a.dir
+      size: 97141009
       nfiles: 3
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-bonsai-en:
+          name: YSO Omikuji Bonsai English
+          language: en
+          backend: omikuji
+          analyzer: simple
+          vocab: yso
+          cluster_balanced: 'False'
+          cluster_k: '100'
+          max_depth: '3'
+          min_df: '5'
+          ngram: '2'
+          limit: '1000'
+          transform: limit(5000)
+          access: hidden
     outs:
     - path: data/projects/yso-bonsai-en
-      md5: 7b3c8486bbce25710e969ce706e9ac71.dir
-      size: 2246619174
+      md5: 733a557dd8ac42cdb4769fea8511a86a.dir
+      size: 2285192870
       nfiles: 6
   train-omikuji@fi:
     cmd: venv/bin/annif train yso-bonsai-fi corpora/shorttext-train/fi/yso-finna-fi*.tsv.gz
     deps:
     - path: corpora/shorttext-train/fi/
-      md5: 07a3af99a4f93de2ad61910ce8bcc8e5.dir
-      size: 352502972
+      md5: 2064a60656bb497380266e50e9697a64.dir
+      size: 356689194
       nfiles: 9
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-bonsai-fi:
+          name: YSO Omikuji Bonsai Finnish
+          language: fi
+          backend: omikuji
+          analyzer: snowball(finnish)
+          vocab: yso
+          cluster_balanced: 'False'
+          cluster_k: '100'
+          max_depth: '3'
+          min_df: '5'
+          ngram: '2'
+          limit: '1000'
+          transform: limit(5000)
+          access: hidden
     outs:
     - path: data/projects/yso-bonsai-fi
-      md5: e065094c56ff3a61e2a4648e47156c8f.dir
-      size: 5277448954
+      md5: 171f4b555eb0f81676d75e18c48e3672.dir
+      size: 5325366584
       nfiles: 6
   train-fasttext@sv:
     cmd: venv/bin/annif train yso-fasttext-sv corpora/shorttext-train/sv/yso-finna-sv*.tsv.gz
     deps:
     - path: corpora/shorttext-train/sv/
-      md5: 222c9a5f9bf7bfc03607572bd5feda3b.dir
-      size: 41343175
+      md5: b9edbd946f8b50d73c1b4bb7f1b0b2a3.dir
+      size: 41981684
       nfiles: 3
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fasttext-sv:
+          name: YSO fastText Swedish
+          language: sv
+          backend: fasttext
+          analyzer: snowball(swedish)
+          dim: '560'
+          lr: '0.974349'
+          epoch: '110'
+          minn: '2'
+          maxn: '6'
+          minCount: '2'
+          wordNgrams: '2'
+          loss: hs
+          limit: '1000'
+          chunksize: '24'
+          vocab: yso
+          transform: limit(15000),filter_lang,limit(5000)
+          access: hidden
     outs:
     - path: data/projects/yso-fasttext-sv
-      md5: 8d272558b0ec13606c0027af74be47e8.dir
-      size: 4915577395
+      md5: 0eb6ab4727e849708aa64a06922fccb5.dir
+      size: 4922024478
       nfiles: 2
   train-fasttext@fi:
     cmd: venv/bin/annif train yso-fasttext-fi corpora/shorttext-train/fi/yso-finna-fi*.tsv.gz
     deps:
     - path: corpora/shorttext-train/fi/
-      md5: 07a3af99a4f93de2ad61910ce8bcc8e5.dir
-      size: 352502972
+      md5: 2064a60656bb497380266e50e9697a64.dir
+      size: 356689194
       nfiles: 9
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fasttext-fi:
+          name: YSO fastText Finnish
+          language: fi
+          backend: fasttext
+          analyzer: voikko(fi)
+          dim: '660'
+          lr: '0.506539'
+          epoch: '75'
+          minn: '2'
+          maxn: '7'
+          minCount: '2'
+          wordNgrams: '2'
+          loss: hs
+          limit: '1000'
+          chunksize: '24'
+          vocab: yso
+          transform: limit(15000),filter_lang,limit(5000)
+          access: hidden
     outs:
     - path: data/projects/yso-fasttext-fi
-      md5: 0f5c9eb966671d610e8d8556b270652c.dir
-      size: 7519964475
+      md5: edf9c13af0c9c58b6c8245880781ca19.dir
+      size: 7548524638
       nfiles: 2
   train-fasttext@en:
     cmd: venv/bin/annif train yso-fasttext-en corpora/shorttext-train/en/yso-finna-en*.tsv.gz
     deps:
     - path: corpora/shorttext-train/en/
-      md5: 4dbef50d2e326e39eb1863747b369f74.dir
-      size: 95559460
+      md5: 92495bd84f872394a970093eac0edf3a.dir
+      size: 97141009
       nfiles: 3
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fasttext-en:
+          name: YSO fastText English
+          language: en
+          backend: fasttext
+          analyzer: snowball(english)
+          dim: '430'
+          lr: '0.506539'
+          epoch: '115'
+          minn: '4'
+          maxn: '5'
+          minCount: '1'
+          wordNgrams: '2'
+          loss: hs
+          limit: '1000'
+          chunksize: '24'
+          vocab: yso
+          transform: limit(15000),filter_lang,limit(5000)
+          access: hidden
     outs:
     - path: data/projects/yso-fasttext-en
-      md5: 625be5253a0eee61c44741e63acb1021.dir
-      size: 4077282108
+      md5: 11e12cd37d650d3ceace0fa622b4854b.dir
+      size: 4086271566
       nfiles: 2
   train-nn-ensemble@sv:
     cmd: venv/bin/annif train yso-sv corpora/fulltext-train/sv/*/ -j 16
     deps:
     - path: corpora/fulltext-train/sv
-      md5: c5fbd3ee6cd3fce7911076bcbafb8678.dir
-      size: 154593040
+      md5: a8e6a65cc0aec6945bbb8a8d70bce90e.dir
+      size: 154698790
       nfiles: 3749
     - path: data/projects/yso-bonsai-sv
-      md5: 325628ed10b5330b42fdf93489ab870d.dir
-      size: 1035735788
+      md5: 314d0700e5850659195a420268b54e02.dir
+      size: 1053223791
       nfiles: 6
     - path: data/projects/yso-fasttext-sv
-      md5: 8d272558b0ec13606c0027af74be47e8.dir
-      size: 4915577395
+      md5: 0eb6ab4727e849708aa64a06922fccb5.dir
+      size: 4922024478
       nfiles: 2
     - path: data/projects/yso-mllm-sv
-      md5: fc2e344bac4abd0048c7c286ffdba0eb.dir
-      size: 19904278
+      md5: 22cf2b1f46a27e77a3edb46f1b5cd175.dir
+      size: 19414058
       nfiles: 2
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-sv:
+          name: ALLFO svenska (2022.1.Filolaos)
+          language: sv
+          backend: nn_ensemble
+          sources: yso-mllm-sv:0.1439,yso-fasttext-sv:0.3302,yso-bonsai-sv:0.5259
+          limit: '100'
+          vocab: yso
+          nodes: '100'
+          dropout_rate: '0.2'
+          epochs: '10'
     outs:
     - path: data/projects/yso-sv
-      md5: ae67e474cf16ea00e27a82aab743aa25.dir
-      size: 1256008932
+      md5: 145ccbfcf7c7906ae3279db03080527f.dir
+      size: 1257500652
       nfiles: 3
   train-nn-ensemble@en:
     cmd: venv/bin/annif train yso-en corpora/fulltext-train/en/*/ -j 16
     deps:
     - path: corpora/fulltext-train/en
-      md5: fe1e9934eb39430db019626b55f8acf5.dir
-      size: 267075899
+      md5: 117b294876c0568e5348bb01261ee204.dir
+      size: 267198009
       nfiles: 4574
     - path: data/projects/yso-bonsai-en
-      md5: 7b3c8486bbce25710e969ce706e9ac71.dir
-      size: 2246619174
+      md5: 733a557dd8ac42cdb4769fea8511a86a.dir
+      size: 2285192870
       nfiles: 6
     - path: data/projects/yso-fasttext-en
-      md5: 625be5253a0eee61c44741e63acb1021.dir
-      size: 4077282108
+      md5: 11e12cd37d650d3ceace0fa622b4854b.dir
+      size: 4086271566
       nfiles: 2
     - path: data/projects/yso-mllm-en
-      md5: 03fe928341b019387a004ce33b85b220.dir
-      size: 38643312
+      md5: 4a6fd850821a5d07ab8efe2b4ce17cd3.dir
+      size: 38738951
       nfiles: 2
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-en:
+          name: YSO English (2022.1.Filolaos)
+          language: en
+          backend: nn_ensemble
+          sources: yso-mllm-en:0.3426,yso-fasttext-en:0.1419,yso-bonsai-en:0.5155
+          limit: '100'
+          vocab: yso
+          nodes: '100'
+          dropout_rate: '0.2'
+          epochs: '10'
     outs:
     - path: data/projects/yso-en
-      md5: 24577b123f81a54672f8c88c855003f9.dir
-      size: 1256008932
+      md5: 04a45f8472ca3f85d357adc3f6d68371.dir
+      size: 1257500652
       nfiles: 3
   train-nn-ensemble@fi:
     cmd: venv/bin/annif train yso-fi corpora/fulltext-train/fi/*/ -j 16
     deps:
     - path: corpora/fulltext-train/fi
-      md5: b013b3cfe61edb4fb3cfbbab28eb9b9a.dir
-      size: 413806076
+      md5: 874b0f486716b35c32ce707fafde0b52.dir
+      size: 413859931
       nfiles: 5583
     - path: data/projects/yso-bonsai-fi
-      md5: e065094c56ff3a61e2a4648e47156c8f.dir
-      size: 5277448954
+      md5: 171f4b555eb0f81676d75e18c48e3672.dir
+      size: 5325366584
       nfiles: 6
     - path: data/projects/yso-fasttext-fi
-      md5: 0f5c9eb966671d610e8d8556b270652c.dir
-      size: 7519964475
+      md5: edf9c13af0c9c58b6c8245880781ca19.dir
+      size: 7548524638
       nfiles: 2
     - path: data/projects/yso-mllm-fi
-      md5: c42dd794bb146ecf7cf60e5f49167ab2.dir
-      size: 36078206
+      md5: 8b07e418eff2058576cffc8d7e4b8efa.dir
+      size: 35989087
       nfiles: 2
     - path: data/vocabs/yso
-      md5: b5dbc89a743143a795e8e20db6905753.dir
-      size: 50342575
+      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
+      size: 54600090
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fi:
+          name: YSO suomi (2022.1.Filolaos)
+          language: fi
+          backend: nn_ensemble
+          sources: yso-mllm-fi:0.1492,yso-fasttext-fi:0.6090,yso-bonsai-fi:0.2418
+          limit: '100'
+          vocab: yso
+          nodes: '100'
+          dropout_rate: '0.2'
+          epochs: '10'
     outs:
     - path: data/projects/yso-fi
-      md5: 0ee7c25493902fc837a800a170a5798e.dir
-      size: 1256008932
+      md5: 5cdcb92c1450df0f7c903d1eebf68210.dir
+      size: 1257500652
       nfiles: 3
   eval-fi@mllm:
     cmd:
@@ -634,29 +811,49 @@ stages:
       corpora/fulltext-test/sv/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/sv
-      md5: 2d29064639aa0f8900e4bf58a781826e.dir
-      size: 66510456
+      md5: 80df083e6e864519bf233a79138ee7c0.dir
+      size: 66572573
       nfiles: 1876
     - path: data/projects/yso-fasttext-sv
-      md5: 8d272558b0ec13606c0027af74be47e8.dir
-      size: 4915577395
+      md5: 0eb6ab4727e849708aa64a06922fccb5.dir
+      size: 4922024478
       nfiles: 2
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fasttext-sv:
+          name: YSO fastText Swedish
+          language: sv
+          backend: fasttext
+          analyzer: snowball(swedish)
+          dim: '560'
+          lr: '0.974349'
+          epoch: '110'
+          minn: '2'
+          maxn: '6'
+          minCount: '2'
+          wordNgrams: '2'
+          loss: hs
+          limit: '1000'
+          chunksize: '24'
+          vocab: yso
+          transform: limit(15000),filter_lang,limit(5000)
+          access: hidden
     outs:
     - path: reports/fasttext-sv-abo-theses.json
-      md5: ea4e5c8d3c72e853ce0bda1757cd4e41
+      md5: 0a8f6ac97c9cccda78878e16f0cd185d
       size: 93
     - path: reports/fasttext-sv-jyu-theses.json
-      md5: 8e73efa922698dd1fa968f6dba4c779c
-      size: 92
+      md5: 4b6908a140dafbcad9c7d42815a69170
+      size: 91
     - path: reports/fasttext-sv-kirjaesittelyt2021.json
-      md5: 42fa4ff3fa951ecf07ce404a1c68d990
+      md5: a542612596b093f0606008e8e79baae9
       size: 93
     - path: reports/fasttext-sv-vapaakappaleet-orig.json
-      md5: ac8102682f7b1b003967c2ad250c61d8
-      size: 94
+      md5: aefeb370c899254ab900ccd789b5a169
+      size: 92
   eval-sv@sv:
     cmd:
     - venv/bin/annif eval yso-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/sv-abo-theses.json
@@ -669,28 +866,40 @@ stages:
       corpora/fulltext-test/sv/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/sv
-      md5: 2d29064639aa0f8900e4bf58a781826e.dir
-      size: 66510456
+      md5: 80df083e6e864519bf233a79138ee7c0.dir
+      size: 66572573
       nfiles: 1876
     - path: data/projects/yso-sv
-      md5: ae67e474cf16ea00e27a82aab743aa25.dir
-      size: 1256008932
+      md5: 145ccbfcf7c7906ae3279db03080527f.dir
+      size: 1257500652
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-sv:
+          name: ALLFO svenska (2022.1.Filolaos)
+          language: sv
+          backend: nn_ensemble
+          sources: yso-mllm-sv:0.1439,yso-fasttext-sv:0.3302,yso-bonsai-sv:0.5259
+          limit: '100'
+          vocab: yso
+          nodes: '100'
+          dropout_rate: '0.2'
+          epochs: '10'
     outs:
     - path: reports/sv-abo-theses.json
-      md5: 1e60a9221f4a22f9610ed0f00f0d47a4
+      md5: d7d054738629239a5861e9a390ee4b0d
       size: 93
     - path: reports/sv-jyu-theses.json
-      md5: 71740a4aed7be5b46d9a3711360082f5
+      md5: 82293c8855f605875c4155f932d99893
       size: 91
     - path: reports/sv-kirjaesittelyt2021.json
-      md5: e386bf8472d472e95c68ca640223816e
+      md5: 8dbc0962daec9de952f4ff9201d3ddeb
       size: 93
     - path: reports/sv-vapaakappaleet-orig.json
-      md5: bae8675f9d3245ce91d8390128881184
+      md5: 7ebba8b72f8a7ee5ca66a94026252938
       size: 92
   eval-en@bonsai-en:
     cmd:
@@ -704,28 +913,44 @@ stages:
       corpora/fulltext-test/en/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/en
-      md5: e6fd23c87a07631f24e52f568fad23ea.dir
-      size: 331772939
+      md5: 92fbe7ac47f5ce0b6a6bd56b948b3273.dir
+      size: 331830781
       nfiles: 3825
     - path: data/projects/yso-bonsai-en
-      md5: 7b3c8486bbce25710e969ce706e9ac71.dir
-      size: 2246619174
+      md5: 733a557dd8ac42cdb4769fea8511a86a.dir
+      size: 2285192870
       nfiles: 6
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-bonsai-en:
+          name: YSO Omikuji Bonsai English
+          language: en
+          backend: omikuji
+          analyzer: simple
+          vocab: yso
+          cluster_balanced: 'False'
+          cluster_k: '100'
+          max_depth: '3'
+          min_df: '5'
+          ngram: '2'
+          limit: '1000'
+          transform: limit(5000)
+          access: hidden
     outs:
     - path: reports/bonsai-en-abo-theses.json
-      md5: 109beeb488b023241e61fb4fddba1d35
-      size: 93
+      md5: 31eb2b09edce89f6321786ffdc4a6dc6
+      size: 91
     - path: reports/bonsai-en-jyu-theses.json
-      md5: f917141ae8af29e6834359c35998e98d
+      md5: 4efd7dd2e778f3b595e7830513d46467
       size: 92
     - path: reports/bonsai-en-kirjaesittelyt2021.json
-      md5: 711601791fe7245a961e0bd5fdb6dccd
-      size: 92
+      md5: 90e3bc5377b245bb42978ac80b8baeab
+      size: 91
     - path: reports/bonsai-en-vapaakappaleet-orig.json
-      md5: 2324260b996366b775fbf3c38a14a309
+      md5: ae252d1460c69f6ea7f8e77247688f66
       size: 93
   eval-en@en:
     cmd:
@@ -739,28 +964,40 @@ stages:
       corpora/fulltext-test/en/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/en
-      md5: e6fd23c87a07631f24e52f568fad23ea.dir
-      size: 331772939
+      md5: 92fbe7ac47f5ce0b6a6bd56b948b3273.dir
+      size: 331830781
       nfiles: 3825
     - path: data/projects/yso-en
-      md5: 24577b123f81a54672f8c88c855003f9.dir
-      size: 1256008932
+      md5: 04a45f8472ca3f85d357adc3f6d68371.dir
+      size: 1257500652
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-en:
+          name: YSO English (2022.1.Filolaos)
+          language: en
+          backend: nn_ensemble
+          sources: yso-mllm-en:0.3426,yso-fasttext-en:0.1419,yso-bonsai-en:0.5155
+          limit: '100'
+          vocab: yso
+          nodes: '100'
+          dropout_rate: '0.2'
+          epochs: '10'
     outs:
     - path: reports/en-abo-theses.json
-      md5: 5f72fd2a26a115c36bd07c8ce1f95d60
-      size: 91
+      md5: bef01978beec7fec6566037c35a91dfe
+      size: 89
     - path: reports/en-jyu-theses.json
-      md5: 2af5c4fd7a98e7a0736dbe243f0ff140
+      md5: 2d7cb2a2b06844d5728514e5623df5bf
       size: 92
     - path: reports/en-kirjaesittelyt2021.json
-      md5: d1a505bdb19681e3e9ab767f253b5a94
+      md5: 025c92c3ba6a1ebb5f9055fddee1c116
       size: 92
     - path: reports/en-vapaakappaleet-orig.json
-      md5: fe1db93f0ecd8bfd3d254196644440e6
+      md5: 037bb538d01bcf4130d4366fbc46e9c4
       size: 93
   eval-en@fasttext-en:
     cmd:
@@ -774,29 +1011,49 @@ stages:
       corpora/fulltext-test/en/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/en
-      md5: e6fd23c87a07631f24e52f568fad23ea.dir
-      size: 331772939
+      md5: 92fbe7ac47f5ce0b6a6bd56b948b3273.dir
+      size: 331830781
       nfiles: 3825
     - path: data/projects/yso-fasttext-en
-      md5: 625be5253a0eee61c44741e63acb1021.dir
-      size: 4077282108
+      md5: 11e12cd37d650d3ceace0fa622b4854b.dir
+      size: 4086271566
       nfiles: 2
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fasttext-en:
+          name: YSO fastText English
+          language: en
+          backend: fasttext
+          analyzer: snowball(english)
+          dim: '430'
+          lr: '0.506539'
+          epoch: '115'
+          minn: '4'
+          maxn: '5'
+          minCount: '1'
+          wordNgrams: '2'
+          loss: hs
+          limit: '1000'
+          chunksize: '24'
+          vocab: yso
+          transform: limit(15000),filter_lang,limit(5000)
+          access: hidden
     outs:
     - path: reports/fasttext-en-abo-theses.json
-      md5: 66940ff0ea42d44ab1b429905c51858a
+      md5: fcf45b124d4690ecf2f98b9816adb874
       size: 93
     - path: reports/fasttext-en-jyu-theses.json
-      md5: 8bdfe2503c1a002d31121f48daf493db
-      size: 92
+      md5: 8b09a15c0bb9c88f610a36e603b75e14
+      size: 94
     - path: reports/fasttext-en-kirjaesittelyt2021.json
-      md5: baad9e2130658cd53bddea24d0c97454
-      size: 93
-    - path: reports/fasttext-en-vapaakappaleet-orig.json
-      md5: a8060ee8a76b5b3e7a5134d0edfdc5d9
+      md5: 9555e44b6c37811b5756d561be64c621
       size: 92
+    - path: reports/fasttext-en-vapaakappaleet-orig.json
+      md5: 061fc13cd763056922e93c83bdd283b1
+      size: 94
   eval-fi@fasttext-fi:
     cmd:
     - venv/bin/annif eval yso-fasttext-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fasttext-fi-jyu-theses.json
@@ -811,31 +1068,51 @@ stages:
       corpora/fulltext-test/fi/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/fi
-      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
-      size: 385626157
+      md5: 85f5b27f173ee39477ca077feab15fd8.dir
+      size: 385776078
       nfiles: 7267
     - path: data/projects/yso-fasttext-fi
-      md5: 0f5c9eb966671d610e8d8556b270652c.dir
-      size: 7519964475
+      md5: edf9c13af0c9c58b6c8245880781ca19.dir
+      size: 7548524638
       nfiles: 2
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fasttext-fi:
+          name: YSO fastText Finnish
+          language: fi
+          backend: fasttext
+          analyzer: voikko(fi)
+          dim: '660'
+          lr: '0.506539'
+          epoch: '75'
+          minn: '2'
+          maxn: '7'
+          minCount: '2'
+          wordNgrams: '2'
+          loss: hs
+          limit: '1000'
+          chunksize: '24'
+          vocab: yso
+          transform: limit(15000),filter_lang,limit(5000)
+          access: hidden
     outs:
     - path: reports/fasttext-fi-jyu-theses.json
-      md5: 339a05b2faa098074a7717ef6677048b
-      size: 93
+      md5: dcd635c9666cb79ca229e3fbd399a9aa
+      size: 91
     - path: reports/fasttext-fi-kirjaesittelyt2021.json
-      md5: b0425400c2513d8580bf726bc0b487d3
+      md5: eb09548b54ab0daa9b963c5764a66e17
       size: 94
     - path: reports/fasttext-fi-kirjastonhoitaja.json
-      md5: 7fe1e06726e05effef46a1cb97078d72
-      size: 92
+      md5: 5b2be895077a56c294fac5c8a54c7288
+      size: 91
     - path: reports/fasttext-fi-satakunnan-kansa.json
-      md5: 63b1b03ad124c17bc3570188f1855ec9
-      size: 93
+      md5: 58fdd02c450a91399886a0c4e21f4af9
+      size: 94
     - path: reports/fasttext-fi-vapaakappaleet-orig.json
-      md5: 0acd6e385633742bd18513109a5a87dc
+      md5: 617c33e74acb085f1c0380d3c70e10b3
       size: 94
   eval-fi@mllm-fi:
     cmd:
@@ -851,31 +1128,42 @@ stages:
       corpora/fulltext-test/fi/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/fi
-      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
-      size: 385626157
+      md5: 85f5b27f173ee39477ca077feab15fd8.dir
+      size: 385776078
       nfiles: 7267
     - path: data/projects/yso-mllm-fi
-      md5: c42dd794bb146ecf7cf60e5f49167ab2.dir
-      size: 36078206
+      md5: 8b07e418eff2058576cffc8d7e4b8efa.dir
+      size: 35989087
       nfiles: 2
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-mllm-fi:
+          name: YSO MLLM Finnish
+          language: fi
+          backend: mllm
+          analyzer: voikko(fi)
+          vocab: yso
+          limit: '1000'
+          transform: limit(3000000)
+          access: hidden
     outs:
     - path: reports/mllm-fi-jyu-theses.json
-      md5: 017241308807e76f5c4ecc675c280bfa
+      md5: 810e2776b6dff6cc60588149fea5cafd
       size: 92
     - path: reports/mllm-fi-kirjaesittelyt2021.json
-      md5: b289df9d0158a0e8c6cd74dd2df7d9c2
-      size: 94
+      md5: 787fad1c68843669f73b87773d36d7db
+      size: 95
     - path: reports/mllm-fi-kirjastonhoitaja.json
-      md5: 1ed10e3905a72ffe5181bc74ec27599d
+      md5: 6e0806ea62766a937ca39a9208d4294e
       size: 93
     - path: reports/mllm-fi-satakunnan-kansa.json
-      md5: 7100b02bb18dad3f8e8d073b7bff9e50
+      md5: 51725cdaaf04e31d94ca1d9a312d41c5
       size: 93
     - path: reports/mllm-fi-vapaakappaleet-orig.json
-      md5: bb3ed842b8468708c1c064452b6b24f1
+      md5: de457edcaaa1135b1febd2b8276b0884
       size: 93
   eval-fi@bonsai-fi:
     cmd:
@@ -891,31 +1179,47 @@ stages:
       corpora/fulltext-test/fi/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/fi
-      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
-      size: 385626157
+      md5: 85f5b27f173ee39477ca077feab15fd8.dir
+      size: 385776078
       nfiles: 7267
     - path: data/projects/yso-bonsai-fi
-      md5: e065094c56ff3a61e2a4648e47156c8f.dir
-      size: 5277448954
+      md5: 171f4b555eb0f81676d75e18c48e3672.dir
+      size: 5325366584
       nfiles: 6
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-bonsai-fi:
+          name: YSO Omikuji Bonsai Finnish
+          language: fi
+          backend: omikuji
+          analyzer: snowball(finnish)
+          vocab: yso
+          cluster_balanced: 'False'
+          cluster_k: '100'
+          max_depth: '3'
+          min_df: '5'
+          ngram: '2'
+          limit: '1000'
+          transform: limit(5000)
+          access: hidden
     outs:
     - path: reports/bonsai-fi-jyu-theses.json
-      md5: 660095be4380591aa8c7f839ffbf1aa4
+      md5: a10a609894865840716b951b5c3dbba4
       size: 92
     - path: reports/bonsai-fi-kirjaesittelyt2021.json
-      md5: 61540b3360540911b4ec3a934abb74ca
+      md5: 61c527f7ef1aea0bece9af42f65a30c1
       size: 94
     - path: reports/bonsai-fi-kirjastonhoitaja.json
-      md5: 95696330bd44571520752bdb4a460287
-      size: 93
+      md5: 97305e19160e5966fa3e5d7a9e11b4c4
+      size: 92
     - path: reports/bonsai-fi-satakunnan-kansa.json
-      md5: 2bb5923811b0760695cb5ad2465469e5
+      md5: 989ed6fd4d9e75f8048903c584a5afd6
       size: 93
     - path: reports/bonsai-fi-vapaakappaleet-orig.json
-      md5: e772a46ccd7bde3cce12b9edf1484b41
+      md5: 668b8343623f8f97cc2660f60a783923
       size: 93
   eval-en@mllm-en:
     cmd:
@@ -929,29 +1233,40 @@ stages:
       corpora/fulltext-test/en/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/en
-      md5: e6fd23c87a07631f24e52f568fad23ea.dir
-      size: 331772939
+      md5: 92fbe7ac47f5ce0b6a6bd56b948b3273.dir
+      size: 331830781
       nfiles: 3825
     - path: data/projects/yso-mllm-en
-      md5: 03fe928341b019387a004ce33b85b220.dir
-      size: 38643312
+      md5: 4a6fd850821a5d07ab8efe2b4ce17cd3.dir
+      size: 38738951
       nfiles: 2
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-mllm-en:
+          name: YSO MLLM English
+          language: en
+          backend: mllm
+          analyzer: snowball(english)
+          vocab: yso
+          limit: '1000'
+          transform: limit(3000000)
+          access: hidden
     outs:
     - path: reports/mllm-en-abo-theses.json
-      md5: b293ba74e7f65fee4b346e2fa875d570
-      size: 92
-    - path: reports/mllm-en-jyu-theses.json
-      md5: c8bdc5f4f57799201b97ed62191c608c
-      size: 92
-    - path: reports/mllm-en-kirjaesittelyt2021.json
-      md5: 121d0ac40869b4dd7b0a1fc6094e2c42
-      size: 94
-    - path: reports/mllm-en-vapaakappaleet-orig.json
-      md5: ce7b8315090d0028028608190364ea9a
+      md5: a87f983996f7329641c5819f93019c83
       size: 93
+    - path: reports/mllm-en-jyu-theses.json
+      md5: d9cfa76a0c446c3dbadde916b5d8a7a1
+      size: 93
+    - path: reports/mllm-en-kirjaesittelyt2021.json
+      md5: f1d75a935ea5b2c262f89d9def801681
+      size: 93
+    - path: reports/mllm-en-vapaakappaleet-orig.json
+      md5: 5cc0b7faa3201b266d334ee50d8c62c0
+      size: 94
   eval-sv@bonsai-sv:
     cmd:
     - venv/bin/annif eval yso-bonsai-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-sv-abo-theses.json
@@ -964,29 +1279,45 @@ stages:
       corpora/fulltext-test/sv/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/sv
-      md5: 2d29064639aa0f8900e4bf58a781826e.dir
-      size: 66510456
+      md5: 80df083e6e864519bf233a79138ee7c0.dir
+      size: 66572573
       nfiles: 1876
     - path: data/projects/yso-bonsai-sv
-      md5: 325628ed10b5330b42fdf93489ab870d.dir
-      size: 1035735788
+      md5: 314d0700e5850659195a420268b54e02.dir
+      size: 1053223791
       nfiles: 6
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-bonsai-sv:
+          name: YSO Omikuji Bonsai Swedish
+          language: sv
+          backend: omikuji
+          analyzer: snowball(swedish)
+          vocab: yso
+          cluster_balanced: 'False'
+          cluster_k: '100'
+          max_depth: '3'
+          min_df: '2'
+          ngram: '2'
+          limit: '1000'
+          transform: limit(5000)
+          access: hidden
     outs:
     - path: reports/bonsai-sv-abo-theses.json
-      md5: 65fd5a684e967d01b8527489b6ca38c3
-      size: 93
+      md5: 9ee6d6fba0042c30092fbb9aab64f5d9
+      size: 94
     - path: reports/bonsai-sv-jyu-theses.json
-      md5: 69084213079115f7f97cf16115d58010
+      md5: 2eb42fc04031c791d345ec0289cd7a2a
       size: 91
     - path: reports/bonsai-sv-kirjaesittelyt2021.json
-      md5: 1c2fe10783ce03e22dede97beb120c65
-      size: 93
+      md5: f1f9aca047df3ab6aebb6f3132767c39
+      size: 92
     - path: reports/bonsai-sv-vapaakappaleet-orig.json
-      md5: b413d239d447d4bf3b57510d3503de87
-      size: 93
+      md5: 2d23b0368b9bf24ef14d2e70bbb2a9d7
+      size: 91
   eval-sv@mllm-sv:
     cmd:
     - venv/bin/annif eval yso-mllm-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-sv-abo-theses.json
@@ -999,29 +1330,40 @@ stages:
       corpora/fulltext-test/sv/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/sv
-      md5: 2d29064639aa0f8900e4bf58a781826e.dir
-      size: 66510456
+      md5: 80df083e6e864519bf233a79138ee7c0.dir
+      size: 66572573
       nfiles: 1876
     - path: data/projects/yso-mllm-sv
-      md5: fc2e344bac4abd0048c7c286ffdba0eb.dir
-      size: 19904278
+      md5: 22cf2b1f46a27e77a3edb46f1b5cd175.dir
+      size: 19414058
       nfiles: 2
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-mllm-sv:
+          name: YSO MLLM Swedish
+          language: sv
+          backend: mllm
+          analyzer: snowball(swedish)
+          vocab: yso
+          limit: '1000'
+          transform: limit(3000000)
+          access: hidden
     outs:
     - path: reports/mllm-sv-abo-theses.json
-      md5: 0d6f871b92dfb263c56e17f644e99513
+      md5: 3b8777e14135ec517d9019fd90a7b1ec
       size: 92
     - path: reports/mllm-sv-jyu-theses.json
-      md5: 81f8eb0a6908169aeb2ba236a0baf3f7
+      md5: b7668d6be366641611f8353cf253065e
       size: 91
     - path: reports/mllm-sv-kirjaesittelyt2021.json
-      md5: 52bd3c980952bea81514ea41c1a0376c
-      size: 92
+      md5: bf175290cb6c1affe9fd977d2119e6d7
+      size: 93
     - path: reports/mllm-sv-vapaakappaleet-orig.json
-      md5: ec892031820644822da0cb58aaef8b2c
-      size: 92
+      md5: eb3cd2cd5fb2911b3a7590d05ce6aa9c
+      size: 91
   eval-fi@fi:
     cmd:
     - venv/bin/annif eval yso-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fi-jyu-theses.json
@@ -1036,29 +1378,41 @@ stages:
       corpora/fulltext-test/fi/vapaakappaleet-orig/
     deps:
     - path: corpora/fulltext-test/fi
-      md5: 169cae26a0b93733aed807f8e9d9ca40.dir
-      size: 385626157
+      md5: 85f5b27f173ee39477ca077feab15fd8.dir
+      size: 385776078
       nfiles: 7267
     - path: data/projects/yso-fi
-      md5: 0ee7c25493902fc837a800a170a5798e.dir
-      size: 1256008932
+      md5: 5cdcb92c1450df0f7c903d1eebf68210.dir
+      size: 1257500652
       nfiles: 3
     - path: venv-installed
       md5: abf841d22e1cdf25eb9e9ef2368c240d
       size: 49
+    params:
+      projects.toml:
+        yso-fi:
+          name: YSO suomi (2022.1.Filolaos)
+          language: fi
+          backend: nn_ensemble
+          sources: yso-mllm-fi:0.1492,yso-fasttext-fi:0.6090,yso-bonsai-fi:0.2418
+          limit: '100'
+          vocab: yso
+          nodes: '100'
+          dropout_rate: '0.2'
+          epochs: '10'
     outs:
     - path: reports/fi-jyu-theses.json
-      md5: 4c4d07aeb8ff9871898ac38f00da8277
+      md5: 8b3f98fc3f70acaa5dfb645f3abe8c9c
       size: 92
     - path: reports/fi-kirjaesittelyt2021.json
-      md5: 7765dc3d82b844c6b053c8a8089fb88a
-      size: 93
+      md5: dbfa19643dac8916c30f623caea91bc2
+      size: 94
     - path: reports/fi-kirjastonhoitaja.json
-      md5: 56510b79011c8f4597e118895d7f493d
-      size: 93
+      md5: 68bea97dc49a111841af0f6ca3f5c526
+      size: 92
     - path: reports/fi-satakunnan-kansa.json
-      md5: c8d8150b774eba18b67b027cee7e0326
-      size: 90
+      md5: 38b30f2121741c421e919a0a29262f67
+      size: 92
     - path: reports/fi-vapaakappaleet-orig.json
-      md5: f0909a6e823c9e9a2b2c417dd7a02aab
+      md5: d5a41df161e3ecc815a89fdddaed2b05
       size: 94

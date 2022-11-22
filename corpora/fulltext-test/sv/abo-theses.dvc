@@ -1,11 +1,11 @@
-md5: dddd1ebf867b178cba32b737fb19784b
+md5: d0e39f638e410d4bfc2289f07b3a5428
 deps:
-- md5: d0d92cd8a7cfb6aab26aa6f3219ec283.dir
-  size: 134834803
+- md5: 4cebc5887b0b4e36c36f73aea2d925a4.dir
+  size: 134848219
   nfiles: 450
   path: /data/Annif-corpora/fulltext/abo-theses/swe/test/
 outs:
-- md5: 0bcbf72690eaa7474e2144dff0772fce.dir
-  size: 17041468
+- md5: d2847d29651cfb9fc056e87b8337d671.dir
+  size: 17054884
   nfiles: 335
   path: abo-theses
