@@ -5,7 +5,6 @@
 # {api-annif-org,ai-finto-fi, etc.} to transfer to is given as the argument.
 # You need to be logged to the cluster with the oc tool.
 
-
 set -e
 
 if [ $# -ne 1 ]
@@ -29,6 +28,5 @@ if [ -z "${pod}" ]
     exit 1
 fi
 
-rsync --rsh='oc rsh' -avrL --inplace projects.toml $pod:/annif-projects
-rsync --rsh='oc rsh' -avrL --exclude="*train*" --exclude="*zip" --inplace --delete-excluded data/{projects,vocabs} $pod:/annif-projects/data
-
+rsync --rsh='oc rsh' -avrL --exclude="*train*" --exclude="*zip" --inplace projects.d $pod:/annif-projects
+rsync --rsh='oc rsh' -avrL --exclude="*train*" --exclude="*zip" --inplace data/{projects,vocabs} $pod:/annif-projects/data
