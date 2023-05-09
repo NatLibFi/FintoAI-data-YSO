@@ -1,11 +1,11 @@
-md5: b89489014b01a4330f4050e76cb48a66
+md5: f7f140806e3623ac84e2c980fdecf164
 deps:
-- md5: 03528a8434a6e4ba9e35468ce1d8bc7c.dir
-  size: 677165
+- md5: 3eb663a7e1521ff1c0332937cd9970dc.dir
+  size: 677245
   nfiles: 1120
   path: /data/Annif-corpora-restricted/kirjaesittelyt2021/yso/swe/test
 outs:
-- md5: 03528a8434a6e4ba9e35468ce1d8bc7c.dir
-  size: 677165
+- md5: 3eb663a7e1521ff1c0332937cd9970dc.dir
+  size: 677245
   nfiles: 1120
   path: kirjaesittelyt2021

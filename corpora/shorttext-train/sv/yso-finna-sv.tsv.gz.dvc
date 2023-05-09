@@ -1,9 +1,9 @@
-md5: f29b4e2cd45a70d9285371b4aa16a99c
+md5: 3954f900860165a9b31082328954e9ff
 deps:
-- md5: 94c4176d967c214e65d2706acbf78821
-  size: 41981414
+- md5: d42231662bc5904894c281ec0699eea4
+  size: 42335517
   path: /data/Annif-corpora/training/yso-finna-sv.tsv.gz
 outs:
-- md5: 94c4176d967c214e65d2706acbf78821
-  size: 41981414
+- md5: d42231662bc5904894c281ec0699eea4
+  size: 42335517
   path: yso-finna-sv.tsv.gz

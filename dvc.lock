@@ -8,25 +8,25 @@ stages:
     - cp requirements.txt venv-installed
     deps:
     - path: requirements.txt
-      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      md5: 970fa118dafba6439ae0f2e639530721
       size: 49
     outs:
     - path: venv-installed
-      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      md5: 970fa118dafba6439ae0f2e639530721
       size: 49
   load-vocab:
     cmd: venv/bin/annif load-vocab --force yso corpora/yso-skos.ttl
     deps:
     - path: corpora/yso-skos.ttl
-      md5: 613590a41e5be5053f8f423767f575f9
-      size: 28761933
+      md5: cbc40e18ab09afeef79c805a15679e55
+      size: 44492315
     - path: venv-installed
-      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      md5: 970fa118dafba6439ae0f2e639530721
       size: 49
     outs:
     - path: data/vocabs/yso
-      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
-      size: 54600090
+      md5: c34219f29b09bdc99625d7c3f44bba3c.dir
+      size: 71984581
       nfiles: 3
   train-mllm@fi:
     cmd: venv/bin/annif train yso-mllm-fi corpora/fulltext-train/fi/*/ -j 16
@@ -122,15 +122,15 @@ stages:
     cmd: venv/bin/annif train yso-bonsai-sv corpora/shorttext-train/sv/yso-finna-sv*.tsv.gz
     deps:
     - path: corpora/shorttext-train/sv/
-      md5: b9edbd946f8b50d73c1b4bb7f1b0b2a3.dir
-      size: 41981684
+      md5: 7d903c4191e394ff6c7dc16b9bf050c9.dir
+      size: 42335787
       nfiles: 3
     - path: data/vocabs/yso
-      md5: 6beed9fe3219808e63dbb84df3fe6f94.dir
-      size: 54600090
+      md5: c34219f29b09bdc99625d7c3f44bba3c.dir
+      size: 71984581
       nfiles: 3
     - path: venv-installed
-      md5: abf841d22e1cdf25eb9e9ef2368c240d
+      md5: 970fa118dafba6439ae0f2e639530721
       size: 49
     params:
       projects.toml:
@@ -150,8 +150,8 @@ stages:
           access: hidden
     outs:
     - path: data/projects/yso-bonsai-sv
-      md5: 314d0700e5850659195a420268b54e02.dir
-      size: 1053223791
+      md5: cfd4ca47df10b2c6da7499989731e1eb.dir
+      size: 1044544286
       nfiles: 6
   train-omikuji@en:
     cmd: venv/bin/annif train yso-bonsai-en corpora/shorttext-train/en/yso-finna-en*.tsv.gz
