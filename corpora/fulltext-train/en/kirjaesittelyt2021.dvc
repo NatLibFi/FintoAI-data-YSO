@@ -1,11 +1,11 @@
-md5: b48836f5fba2c6b607ca731e9187d5fd
+md5: 4d57f46a9b9eba2f76d5e9c13dd7f86f
 deps:
-- md5: d5cb69f6a8969fcdb45661c4cd07fd38.dir
-  size: 1232470
+- md5: eb47e24d00a89e1f89100205306ccd38.dir
+  size: 1232467
   nfiles: 1652
   path: /data/Annif-corpora-local/fulltext-train/en/kirjaesittelyt2021
 outs:
-- md5: d5cb69f6a8969fcdb45661c4cd07fd38.dir
-  size: 1232470
+- md5: eb47e24d00a89e1f89100205306ccd38.dir
+  size: 1232467
   nfiles: 1652
   path: kirjaesittelyt2021
