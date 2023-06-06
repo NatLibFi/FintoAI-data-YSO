@@ -1,11 +1,11 @@
-md5: e731d8934a55c537c56047fbda81e864
+md5: 6f0ab95175c2ea41532728b4d81705ed
 deps:
-- md5: b8aed24dc8d5c3b8d4d456f32b57f75b.dir
-  size: 466292
+- md5: 5afb75fa0238663d838ab82b5dd81372.dir
+  size: 466302
   nfiles: 624
   path: /data/Annif-corpora/fulltext/kirjastonhoitaja/test/
 outs:
-- md5: b8aed24dc8d5c3b8d4d456f32b57f75b.dir
-  size: 466292
+- md5: 5afb75fa0238663d838ab82b5dd81372.dir
+  size: 466302
   nfiles: 624
   path: kirjastonhoitaja
