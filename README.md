@@ -12,7 +12,7 @@ The pipeline takes care of
 3. training the projects,
 4. evaluating the projects.
 
-When the necessary vocabulary and training corpora are in place the pipeline can be run using by the command
+When the necessary vocabulary and training corpora are in place the pipeline can be run using the command
 
     dvc repro
     
