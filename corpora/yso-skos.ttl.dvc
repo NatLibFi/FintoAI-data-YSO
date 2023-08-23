@@ -1,9 +1,11 @@
-md5: b8b2dbde1bd8ecb9c015eab3aae43170
+md5: 723d53e9f88b27482a340c3f4e02f5a7
 deps:
-- md5: cbc40e18ab09afeef79c805a15679e55
-  size: 44492315
+- md5: c3d9a5148c46efa4fbf11ee866154ebf
+  size: 32953533
   path: /data/Annif-corpora/vocab/yso-skos.ttl
+  hash: md5
 outs:
-- md5: cbc40e18ab09afeef79c805a15679e55
-  size: 44492315
+- md5: c3d9a5148c46efa4fbf11ee866154ebf
+  size: 32953533
   path: yso-skos.ttl
+  hash: md5

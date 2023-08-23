@@ -1,9 +1,10 @@
-md5: 379c76459ffec69d77ee56c5f5cbe370
+md5: e3eacb5db12f34d67376e6c6efc022e0
 deps:
-- md5: ea34a6a16b98b497edb2ea21cf41bb96.dir
+- md5: 4d6ea13ca02024a016142c25567ded7d.dir
   size: 226413101
   nfiles: 2080
   path: /data/Annif-corpora-local/vapaakappaleet-orig/fi/test/
+  hash: md5
 outs:
 - md5: ea34a6a16b98b497edb2ea21cf41bb96.dir
   size: 226413101
