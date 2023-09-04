@@ -1,11 +1,13 @@
-md5: 47abd80624b1f8378bbe40d57ff38049
+md5: cc9aa22b429e0c9f7e45ab53e0b75379
 deps:
-- md5: 2033e4d2e789b1a0efe47475214a79d5.dir
-  size: 5734685
+- md5: dc55be91f5b3157e4bc2e4b010bc6847.dir
+  size: 5734687
   nfiles: 64
   path: /data/Annif-corpora/fulltext/jyu-theses/swe-test/
+  hash: md5
 outs:
-- md5: 2033e4d2e789b1a0efe47475214a79d5.dir
-  size: 5734685
+- md5: dc55be91f5b3157e4bc2e4b010bc6847.dir
+  size: 5734687
   nfiles: 64
   path: jyu-theses
+  hash: md5

@@ -1,9 +1,10 @@
-md5: 7ebba01d8e7fe8a65ef6d2cef4cf734e
+md5: 54e7cd77b751dccfb90c850b9fadf144
 deps:
 - md5: 477591160a10d6289a6eb92204e64b48.dir
   size: 128726
   nfiles: 100
   path: /data/Annif-corpora-local/fulltext-train/fi/satakunnan-kansa
+  hash: md5
 outs:
 - md5: 477591160a10d6289a6eb92204e64b48.dir
   size: 128726
