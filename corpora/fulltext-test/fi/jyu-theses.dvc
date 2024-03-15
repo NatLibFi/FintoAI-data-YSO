@@ -1,13 +1,13 @@
-md5: 788eb07f26d934aaf602601da4c5ce7d
+md5: d79c26c788c395a19f9b9aec149d3b5b
 deps:
-- md5: 84ad598c69b51ccf24fba7cf5770a8e9.dir
-  size: 156492348
+- md5: 63a24a752737c77ee9a8347340e10d53.dir
+  size: 156492368
   nfiles: 1532
   path: /data/Annif-corpora/fulltext/jyu-theses/fin-test/
   hash: md5
 outs:
-- md5: 84ad598c69b51ccf24fba7cf5770a8e9.dir
-  size: 156492348
+- md5: 63a24a752737c77ee9a8347340e10d53.dir
+  size: 156492368
   nfiles: 1532
   path: jyu-theses
   hash: md5

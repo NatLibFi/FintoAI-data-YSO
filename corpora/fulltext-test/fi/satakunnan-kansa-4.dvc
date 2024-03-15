@@ -1,12 +1,13 @@
-md5: d88ed0e407d028bfffd012a84873fe44
+md5: 78d27f626b1c00a7c10d141495c8a01a
 deps:
-- md5: 43d672dfadc16ffffd6537f2ffbbd82b.dir
-  size: 122546
+- md5: 039fc0d9cd3142787b7e8f9f3ea68ac1.dir
+  size: 122589
   nfiles: 100
   path: /data/Annif-corpora-restricted/satakunnan-kansa/test4/
   hash: md5
 outs:
-- md5: 43d672dfadc16ffffd6537f2ffbbd82b.dir
-  size: 122546
+- md5: 039fc0d9cd3142787b7e8f9f3ea68ac1.dir
+  size: 122589
   nfiles: 100
   path: satakunnan-kansa-4
+  hash: md5
