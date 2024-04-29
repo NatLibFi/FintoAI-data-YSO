@@ -1,1 +1,1 @@
-annif[fasttext,omikuji,nn,voikko,pycld3]==1.0.*
+annif[fasttext,omikuji,nn,voikko,pycld3]==1.1.*
