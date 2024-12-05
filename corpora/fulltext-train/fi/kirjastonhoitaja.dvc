@@ -1,13 +1,13 @@
-md5: c53fbdaa4c77397e06e6ec6ced29fda9
+md5: 10ed53e16014b843d9cb67feaa95a4be
 deps:
-- md5: 8979846e372fb084dec5663088f7cdc2.dir
-  size: 758017
+- md5: 734c3f701c7031cf78fccb3160ba76e2.dir
+  size: 758029
   nfiles: 1000
   path: /data/Annif-corpora-local/fulltext-train/fi/kirjastonhoitaja
   hash: md5
 outs:
-- md5: 8979846e372fb084dec5663088f7cdc2.dir
-  size: 758017
+- md5: 734c3f701c7031cf78fccb3160ba76e2.dir
+  size: 758029
   nfiles: 1000
   path: kirjastonhoitaja
   hash: md5
