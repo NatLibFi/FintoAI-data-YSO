@@ -1,13 +1,13 @@
-md5: 70cd7a56a6fe85819b454171643a820f
+md5: 9995fc67c5e4701105a3cb46b7588fcb
 deps:
-- md5: f32429d9e8356b511202a0441a3c589c.dir
-  size: 693087
+- md5: bcffa70276da9f7692b2d7eb2abb8385.dir
+  size: 693194
   nfiles: 1000
   path: /data/Annif-corpora-local/fulltext-train/fi/kirjaesittelyt2021
   hash: md5
 outs:
-- md5: f32429d9e8356b511202a0441a3c589c.dir
-  size: 693087
+- md5: bcffa70276da9f7692b2d7eb2abb8385.dir
+  size: 693194
   nfiles: 1000
   path: kirjaesittelyt2021
   hash: md5
