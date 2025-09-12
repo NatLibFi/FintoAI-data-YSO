@@ -1,5 +1,5 @@
 [yso-fi]
-name = "YSO suomi (2023.6.Hypatia)"
+name = "YSO suomi (2025.2.Kant)"
 language = "fi"
 backend = "nn_ensemble"
 sources = "yso-mllm-fi:0.1492,yso-fasttext-fi:0.6090,yso-bonsai-fi:0.2418"
@@ -10,7 +10,7 @@ dropout_rate = "0.2"
 epochs = "10"
 
 [yso-sv]
-name = "ALLFO svenska (2023.6.Hypatia)"
+name = "ALLFO svenska (2025.2.Kant)"
 language = "sv"
 backend = "nn_ensemble"
 sources = "yso-mllm-sv:0.1439,yso-fasttext-sv:0.3302,yso-bonsai-sv:0.5259"
@@ -21,7 +21,7 @@ dropout_rate = "0.2"
 epochs = "10"
 
 [yso-en]
-name = "YSO English (2023.6.Hypatia)"
+name = "YSO English (2025.2.Kant)"
 language = "en"
 backend = "nn_ensemble"
 sources = "yso-mllm-en:0.3426,yso-fasttext-en:0.1419,yso-bonsai-en:0.5155"

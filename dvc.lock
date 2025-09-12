@@ -9,46 +9,46 @@ stages:
     deps:
     - path: requirements.txt
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     outs:
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
   load-vocab:
     cmd: venv/bin/annif load-vocab --force yso corpora/yso-skos.ttl
     deps:
     - path: corpora/yso-skos.ttl
       hash: md5
-      md5: c3d9a5148c46efa4fbf11ee866154ebf
-      size: 32953533
+      md5: a6fc20d8b30abdba44ab76c9893b7459
+      size: 36430727
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     outs:
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
   train-mllm@fi:
     cmd: venv/bin/annif train yso-mllm-fi corpora/fulltext-train/fi/*/ -j 16
     deps:
     - path: corpora/fulltext-train/fi
       hash: md5
-      md5: f5c1820afb398fa8145181cf22905336.dir
-      size: 413860133
+      md5: 36d8cc0b2da5258b6eb85d8e42d663e9.dir
+      size: 413860422
       nfiles: 5583
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -64,25 +64,25 @@ stages:
     outs:
     - path: data/projects/yso-mllm-fi
       hash: md5
-      md5: fb05a7c1e6b2ed72fee85fbbc5b7374b.dir
-      size: 36157873
+      md5: d9c87004b964660650f8962c9b59d7bb.dir
+      size: 35176094
       nfiles: 2
   train-mllm@en:
     cmd: venv/bin/annif train yso-mllm-en corpora/fulltext-train/en/*/ -j 16
     deps:
     - path: corpora/fulltext-train/en
       hash: md5
-      md5: 426f141f77c5bac77b32784e4b827d31.dir
-      size: 268351812
+      md5: 4a9d8498166294c34d5a135a6c977014.dir
+      size: 268351891
       nfiles: 4584
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -98,25 +98,25 @@ stages:
     outs:
     - path: data/projects/yso-mllm-en
       hash: md5
-      md5: 129793bd06d231413a66ed5611180dbe.dir
-      size: 39175771
+      md5: 20a3d8e02c8c7381539558f424515cf5.dir
+      size: 39304442
       nfiles: 2
   train-mllm@sv:
     cmd: venv/bin/annif train yso-mllm-sv corpora/fulltext-train/sv/*/ -j 16
     deps:
     - path: corpora/fulltext-train/sv
       hash: md5
-      md5: c64480b5f34b1895db972d774abe12cc.dir
-      size: 155098642
+      md5: cdf14639a470284dda85e5ebc1aa1e24.dir
+      size: 155099310
       nfiles: 3754
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -132,25 +132,25 @@ stages:
     outs:
     - path: data/projects/yso-mllm-sv
       hash: md5
-      md5: 88dd945c235bdfc4549fa44f5ea582a4.dir
-      size: 19736546
+      md5: 98e8aeab9ba2607738c19ab96f1aeed3.dir
+      size: 18606829
       nfiles: 2
   train-omikuji@sv:
     cmd: venv/bin/annif train yso-bonsai-sv corpora/shorttext-train/sv/yso-finna-sv*.tsv.gz
     deps:
     - path: corpora/shorttext-train/sv/
       hash: md5
-      md5: 33a49e42ec12daf0c973c792928a2cb0.dir
-      size: 40515364
+      md5: 69a0fd4883227bb6ad4bf7e128dfe0de.dir
+      size: 43928773
       nfiles: 3
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -171,25 +171,25 @@ stages:
     outs:
     - path: data/projects/yso-bonsai-sv
       hash: md5
-      md5: 77a54001b5d18a7a474bcf7d4e9577e1.dir
-      size: 1029311381
+      md5: bfb4cab000b6ac7acaf1980498527af1.dir
+      size: 1070339052
       nfiles: 6
   train-omikuji@en:
     cmd: venv/bin/annif train yso-bonsai-en corpora/shorttext-train/en/yso-finna-en*.tsv.gz
     deps:
     - path: corpora/shorttext-train/en/
       hash: md5
-      md5: 19e76af78210f39cf02a5c8bbee38f60.dir
-      size: 98829194
+      md5: a8b073bf37c5500a124faeed38a2e2d0.dir
+      size: 103265382
       nfiles: 3
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -210,25 +210,25 @@ stages:
     outs:
     - path: data/projects/yso-bonsai-en
       hash: md5
-      md5: b1a5a925fbe1a11c153ce3133176c717.dir
-      size: 2321603849
+      md5: 7b9a54a5df74fc36eed9f9635e8bd702.dir
+      size: 2386910098
       nfiles: 6
   train-omikuji@fi:
     cmd: venv/bin/annif train yso-bonsai-fi corpora/shorttext-train/fi/yso-finna-fi*.tsv.gz
     deps:
     - path: corpora/shorttext-train/fi/
       hash: md5
-      md5: 5a2f47124433a7215e6c391a48c0aeca.dir
-      size: 358561386
+      md5: 92116434e57b3b3b6c55fc4ced0abead.dir
+      size: 370123943
       nfiles: 9
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -249,25 +249,25 @@ stages:
     outs:
     - path: data/projects/yso-bonsai-fi
       hash: md5
-      md5: 84a1ae3ca24702d0cbb901f3215e1675.dir
-      size: 5354349482
+      md5: d92cd49e776d15bd8e16ff8e80b6c67c.dir
+      size: 5384831158
       nfiles: 6
   train-fasttext@sv:
     cmd: venv/bin/annif train yso-fasttext-sv corpora/shorttext-train/sv/yso-finna-sv*.tsv.gz
     deps:
     - path: corpora/shorttext-train/sv/
       hash: md5
-      md5: 33a49e42ec12daf0c973c792928a2cb0.dir
-      size: 40515364
+      md5: 69a0fd4883227bb6ad4bf7e128dfe0de.dir
+      size: 43928773
       nfiles: 3
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -292,25 +292,25 @@ stages:
     outs:
     - path: data/projects/yso-fasttext-sv
       hash: md5
-      md5: eccbf5ba8ce07f2777b4bee583ed783b.dir
-      size: 4913883852
+      md5: afacce7ea0a1b2ca80fbce3b5c65264b.dir
+      size: 4930575521
       nfiles: 2
   train-fasttext@fi:
     cmd: venv/bin/annif train yso-fasttext-fi corpora/shorttext-train/fi/yso-finna-fi*.tsv.gz
     deps:
     - path: corpora/shorttext-train/fi/
       hash: md5
-      md5: 5a2f47124433a7215e6c391a48c0aeca.dir
-      size: 358561386
+      md5: 92116434e57b3b3b6c55fc4ced0abead.dir
+      size: 370123943
       nfiles: 9
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -335,25 +335,25 @@ stages:
     outs:
     - path: data/projects/yso-fasttext-fi
       hash: md5
-      md5: 06ea14ea97351f72fbaeb13517011c88.dir
-      size: 7547313091
+      md5: 2393489ce3c0f83c22d160c3d666d295.dir
+      size: 7608992813
       nfiles: 2
   train-fasttext@en:
     cmd: venv/bin/annif train yso-fasttext-en corpora/shorttext-train/en/yso-finna-en*.tsv.gz
     deps:
     - path: corpora/shorttext-train/en/
       hash: md5
-      md5: 19e76af78210f39cf02a5c8bbee38f60.dir
-      size: 98829194
+      md5: a8b073bf37c5500a124faeed38a2e2d0.dir
+      size: 103265382
       nfiles: 3
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -378,45 +378,45 @@ stages:
     outs:
     - path: data/projects/yso-fasttext-en
       hash: md5
-      md5: ca3fa22f9a2b6d46246e351c7a1e3256.dir
-      size: 4091197300
+      md5: c334dfce6f40131eb832cf94701210bf.dir
+      size: 4106595404
       nfiles: 2
   train-nn-ensemble@sv:
     cmd: venv/bin/annif train yso-sv corpora/fulltext-train/sv/*/ -j 16
     deps:
     - path: corpora/fulltext-train/sv
       hash: md5
-      md5: c64480b5f34b1895db972d774abe12cc.dir
-      size: 155098642
+      md5: cdf14639a470284dda85e5ebc1aa1e24.dir
+      size: 155099310
       nfiles: 3754
     - path: data/projects/yso-bonsai-sv
       hash: md5
-      md5: 77a54001b5d18a7a474bcf7d4e9577e1.dir
-      size: 1029311381
+      md5: bfb4cab000b6ac7acaf1980498527af1.dir
+      size: 1070339052
       nfiles: 6
     - path: data/projects/yso-fasttext-sv
       hash: md5
-      md5: eccbf5ba8ce07f2777b4bee583ed783b.dir
-      size: 4913883852
+      md5: afacce7ea0a1b2ca80fbce3b5c65264b.dir
+      size: 4930575521
       nfiles: 2
     - path: data/projects/yso-mllm-sv
       hash: md5
-      md5: 88dd945c235bdfc4549fa44f5ea582a4.dir
-      size: 19736546
+      md5: 98e8aeab9ba2607738c19ab96f1aeed3.dir
+      size: 18606829
       nfiles: 2
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
         yso-sv:
-          name: ALLFO svenska (2023.1.Ghosha)
+          name: ALLFO svenska (2024.2.Ikhwan-al-Safa)
           language: sv
           backend: nn_ensemble
           sources: yso-mllm-sv:0.1439,yso-fasttext-sv:0.3302,yso-bonsai-sv:0.5259
@@ -428,45 +428,45 @@ stages:
     outs:
     - path: data/projects/yso-sv
       hash: md5
-      md5: 9cab94546614acf5ac28514687cf26ad.dir
-      size: 1259460957
+      md5: a2f94629d59b315709f2db028cc47e40.dir
+      size: 1262359045
       nfiles: 3
   train-nn-ensemble@en:
     cmd: venv/bin/annif train yso-en corpora/fulltext-train/en/*/ -j 16
     deps:
     - path: corpora/fulltext-train/en
       hash: md5
-      md5: 426f141f77c5bac77b32784e4b827d31.dir
-      size: 268351812
+      md5: 4a9d8498166294c34d5a135a6c977014.dir
+      size: 268351891
       nfiles: 4584
     - path: data/projects/yso-bonsai-en
       hash: md5
-      md5: b1a5a925fbe1a11c153ce3133176c717.dir
-      size: 2321603849
+      md5: 7b9a54a5df74fc36eed9f9635e8bd702.dir
+      size: 2386910098
       nfiles: 6
     - path: data/projects/yso-fasttext-en
       hash: md5
-      md5: ca3fa22f9a2b6d46246e351c7a1e3256.dir
-      size: 4091197300
+      md5: c334dfce6f40131eb832cf94701210bf.dir
+      size: 4106595404
       nfiles: 2
     - path: data/projects/yso-mllm-en
       hash: md5
-      md5: 129793bd06d231413a66ed5611180dbe.dir
-      size: 39175771
+      md5: 20a3d8e02c8c7381539558f424515cf5.dir
+      size: 39304442
       nfiles: 2
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
         yso-en:
-          name: YSO English (2023.1.Ghosha)
+          name: YSO English (2024.2.Ikhwan-al-Safa)
           language: en
           backend: nn_ensemble
           sources: yso-mllm-en:0.3426,yso-fasttext-en:0.1419,yso-bonsai-en:0.5155
@@ -478,45 +478,45 @@ stages:
     outs:
     - path: data/projects/yso-en
       hash: md5
-      md5: cf09853815a7e8c621b352c2bc70f9e1.dir
-      size: 1259460957
+      md5: 1e17a35b3f7f84015216596fa1618311.dir
+      size: 1262359045
       nfiles: 3
   train-nn-ensemble@fi:
     cmd: venv/bin/annif train yso-fi corpora/fulltext-train/fi/*/ -j 16
     deps:
     - path: corpora/fulltext-train/fi
       hash: md5
-      md5: f5c1820afb398fa8145181cf22905336.dir
-      size: 413860133
+      md5: 36d8cc0b2da5258b6eb85d8e42d663e9.dir
+      size: 413860422
       nfiles: 5583
     - path: data/projects/yso-bonsai-fi
       hash: md5
-      md5: 84a1ae3ca24702d0cbb901f3215e1675.dir
-      size: 5354349482
+      md5: d92cd49e776d15bd8e16ff8e80b6c67c.dir
+      size: 5384831158
       nfiles: 6
     - path: data/projects/yso-fasttext-fi
       hash: md5
-      md5: 06ea14ea97351f72fbaeb13517011c88.dir
-      size: 7547313091
+      md5: 2393489ce3c0f83c22d160c3d666d295.dir
+      size: 7608992813
       nfiles: 2
     - path: data/projects/yso-mllm-fi
       hash: md5
-      md5: fb05a7c1e6b2ed72fee85fbbc5b7374b.dir
-      size: 36157873
+      md5: d9c87004b964660650f8962c9b59d7bb.dir
+      size: 35176094
       nfiles: 2
     - path: data/vocabs/yso
       hash: md5
-      md5: ad8a2ea707ceac4f455d2b3b2f7a7c90.dir
-      size: 61626265
+      md5: b23a8c736fa0ecfae192ff6b20d2e0ef.dir
+      size: 65688545
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
         yso-fi:
-          name: YSO suomi (2023.1.Ghosha)
+          name: YSO suomi (2024.2.Ikhwan-al-Safa)
           language: fi
           backend: nn_ensemble
           sources: yso-mllm-fi:0.1492,yso-fasttext-fi:0.6090,yso-bonsai-fi:0.2418
@@ -528,8 +528,8 @@ stages:
     outs:
     - path: data/projects/yso-fi
       hash: md5
-      md5: a0961bd4dfcfee8367b22ad17d780dbb.dir
-      size: 1259460957
+      md5: 0e4432583c3cd7433b357039c8727ff5.dir
+      size: 1262359045
       nfiles: 3
   eval-fi@mllm:
     cmd:
@@ -874,17 +874,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/sv
       hash: md5
-      md5: 8424019ec4c261915627865324ac2f73.dir
-      size: 66737727
+      md5: deaec938e8f2d753575ec5f382c6e571.dir
+      size: 66738091
       nfiles: 1878
     - path: data/projects/yso-fasttext-sv
       hash: md5
-      md5: eccbf5ba8ce07f2777b4bee583ed783b.dir
-      size: 4913883852
+      md5: afacce7ea0a1b2ca80fbce3b5c65264b.dir
+      size: 4930575521
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -909,19 +909,19 @@ stages:
     outs:
     - path: reports/fasttext-sv-abo-theses.json
       hash: md5
-      md5: 50e4860a0829e104eb2051c13b7786c2
-      size: 94
+      md5: 8d4462bcf73c327feac7f18f42487d1a
+      size: 93
     - path: reports/fasttext-sv-jyu-theses.json
       hash: md5
-      md5: 194c5356f9792f2d6938c26ffc935f37
-      size: 91
+      md5: f611383c19179541c53ff8d7c615537f
+      size: 92
     - path: reports/fasttext-sv-kirjaesittelyt2021.json
       hash: md5
-      md5: c49bb0271033d10d951ccce116a0c0c4
-      size: 93
+      md5: 2d740eabd3dcd6f61ba997faf7a7f5b8
+      size: 92
     - path: reports/fasttext-sv-vapaakappaleet-orig.json
       hash: md5
-      md5: a85d38c085eac4297435d392077cb7f6
+      md5: 918af51d8cf605b0345322d81bea2fb7
       size: 94
   eval-sv@sv:
     cmd:
@@ -936,22 +936,22 @@ stages:
     deps:
     - path: corpora/fulltext-test/sv
       hash: md5
-      md5: 8424019ec4c261915627865324ac2f73.dir
-      size: 66737727
+      md5: deaec938e8f2d753575ec5f382c6e571.dir
+      size: 66738091
       nfiles: 1878
     - path: data/projects/yso-sv
       hash: md5
-      md5: 9cab94546614acf5ac28514687cf26ad.dir
-      size: 1259460957
+      md5: a2f94629d59b315709f2db028cc47e40.dir
+      size: 1262359045
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
         yso-sv:
-          name: ALLFO svenska (2023.1.Ghosha)
+          name: ALLFO svenska (2024.2.Ikhwan-al-Safa)
           language: sv
           backend: nn_ensemble
           sources: yso-mllm-sv:0.1439,yso-fasttext-sv:0.3302,yso-bonsai-sv:0.5259
@@ -963,19 +963,19 @@ stages:
     outs:
     - path: reports/sv-abo-theses.json
       hash: md5
-      md5: 87917904500a6eefe80e1924a0cebe99
-      size: 92
+      md5: 202d24f7e09866c3197122474b217233
+      size: 93
     - path: reports/sv-jyu-theses.json
       hash: md5
-      md5: bb440b30d4c995bc9d9ffef140b53817
+      md5: b3599ac5be80bd930500ebccc3ce7e20
       size: 91
     - path: reports/sv-kirjaesittelyt2021.json
       hash: md5
-      md5: e9b35e7f38fa85945eb1278bdf01ed30
+      md5: 00deb76433f56ed530d5ee9942b142e4
       size: 92
     - path: reports/sv-vapaakappaleet-orig.json
       hash: md5
-      md5: dbd8e93725f32ba3fcba848e9cb61876
+      md5: f4bfdd35c80e6c5fc603895e1ac9775f
       size: 92
   eval-en@bonsai-en:
     cmd:
@@ -990,17 +990,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/en
       hash: md5
-      md5: f1883db613d00c7bce08a1211787f984.dir
-      size: 332654375
+      md5: 0f6ff94585d8a7bb2d86601b85a0469c.dir
+      size: 332654303
       nfiles: 3831
     - path: data/projects/yso-bonsai-en
       hash: md5
-      md5: b1a5a925fbe1a11c153ce3133176c717.dir
-      size: 2321603849
+      md5: 7b9a54a5df74fc36eed9f9635e8bd702.dir
+      size: 2386910098
       nfiles: 6
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1021,20 +1021,20 @@ stages:
     outs:
     - path: reports/bonsai-en-abo-theses.json
       hash: md5
-      md5: 23fb86f0954118ead50392c7801ce834
+      md5: 2a9499116c3cbbe156f7c6a3d421465f
       size: 91
     - path: reports/bonsai-en-jyu-theses.json
       hash: md5
-      md5: 0f8b8c4db657ed8aac3b494a98fa6c15
+      md5: 3a75d112e3fc6f9d8b3303ee6120692b
       size: 92
     - path: reports/bonsai-en-kirjaesittelyt2021.json
       hash: md5
-      md5: f047174bbd0de4588072412f2431d288
+      md5: 7b5243a2ee40dde85c1a6b4b2688938b
       size: 92
     - path: reports/bonsai-en-vapaakappaleet-orig.json
       hash: md5
-      md5: 3091f929ce7e0b070d7fc2dfd0fff4c0
-      size: 92
+      md5: 90957dd905de4c41d26adce19b5e25cf
+      size: 93
   eval-en@en:
     cmd:
     - venv/bin/annif eval yso-en -j 1 -m F1@5 -m NDCG --metrics-file reports/en-abo-theses.json
@@ -1048,22 +1048,22 @@ stages:
     deps:
     - path: corpora/fulltext-test/en
       hash: md5
-      md5: f1883db613d00c7bce08a1211787f984.dir
-      size: 332654375
+      md5: 0f6ff94585d8a7bb2d86601b85a0469c.dir
+      size: 332654303
       nfiles: 3831
     - path: data/projects/yso-en
       hash: md5
-      md5: cf09853815a7e8c621b352c2bc70f9e1.dir
-      size: 1259460957
+      md5: 1e17a35b3f7f84015216596fa1618311.dir
+      size: 1262359045
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
         yso-en:
-          name: YSO English (2023.1.Ghosha)
+          name: YSO English (2024.2.Ikhwan-al-Safa)
           language: en
           backend: nn_ensemble
           sources: yso-mllm-en:0.3426,yso-fasttext-en:0.1419,yso-bonsai-en:0.5155
@@ -1075,20 +1075,20 @@ stages:
     outs:
     - path: reports/en-abo-theses.json
       hash: md5
-      md5: 8d526675b9af9b477a94213eb1254841
-      size: 91
+      md5: 9221d1fc30e22cffba6dfd52307fac42
+      size: 93
     - path: reports/en-jyu-theses.json
       hash: md5
-      md5: 623001128bd0cdf0caedcc97457f0b1c
+      md5: e463bd0ab9cf1dae2ed3bcd9037fcae3
       size: 92
     - path: reports/en-kirjaesittelyt2021.json
       hash: md5
-      md5: 0dbf7262d50072866df3943231f3517e
+      md5: b6953ba2ea8bf56ffa3918b61ffc342b
       size: 92
     - path: reports/en-vapaakappaleet-orig.json
       hash: md5
-      md5: 6968cecb575018eb88e530ad2997888b
-      size: 94
+      md5: 1a2cbd704574b7c4472d832d44e31253
+      size: 92
   eval-en@fasttext-en:
     cmd:
     - venv/bin/annif eval yso-fasttext-en -j 1 -m F1@5 -m NDCG --metrics-file reports/fasttext-en-abo-theses.json
@@ -1102,17 +1102,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/en
       hash: md5
-      md5: f1883db613d00c7bce08a1211787f984.dir
-      size: 332654375
+      md5: 0f6ff94585d8a7bb2d86601b85a0469c.dir
+      size: 332654303
       nfiles: 3831
     - path: data/projects/yso-fasttext-en
       hash: md5
-      md5: ca3fa22f9a2b6d46246e351c7a1e3256.dir
-      size: 4091197300
+      md5: c334dfce6f40131eb832cf94701210bf.dir
+      size: 4106595404
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1137,19 +1137,19 @@ stages:
     outs:
     - path: reports/fasttext-en-abo-theses.json
       hash: md5
-      md5: 931f2f652825441088cac77c30dbf3a9
-      size: 92
+      md5: cbfafbf1d17a3721f5d5b31788f383ab
+      size: 91
     - path: reports/fasttext-en-jyu-theses.json
       hash: md5
-      md5: bcad7d3bae638d6008d4898ae93cd52a
-      size: 93
+      md5: c41b330788fd2669eb5e599cda579911
+      size: 94
     - path: reports/fasttext-en-kirjaesittelyt2021.json
       hash: md5
-      md5: 85e8cdaa79beb6cfa897146bb45460b2
-      size: 93
+      md5: 4c39ebaaadc44ad00282df2229774340
+      size: 92
     - path: reports/fasttext-en-vapaakappaleet-orig.json
       hash: md5
-      md5: 55ce7777768ebcb9421c06551fa9235d
+      md5: 7cfc556799151a43fc561aa2cfcd6b49
       size: 93
   eval-fi@fasttext-fi:
     cmd:
@@ -1166,17 +1166,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/fi
       hash: md5
-      md5: 0fe8c48afc24e8c843a78fd6d76609a4.dir
-      size: 385776340
+      md5: 9340f82e18940abac4eff8e4c4a9acfd.dir
+      size: 385777175
       nfiles: 7267
     - path: data/projects/yso-fasttext-fi
       hash: md5
-      md5: 06ea14ea97351f72fbaeb13517011c88.dir
-      size: 7547313091
+      md5: 2393489ce3c0f83c22d160c3d666d295.dir
+      size: 7608992813
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1201,24 +1201,24 @@ stages:
     outs:
     - path: reports/fasttext-fi-jyu-theses.json
       hash: md5
-      md5: f44b29e37e940212365d1faba24d807f
-      size: 94
+      md5: 99e0c3867fc56d9140a5635a300e3a5b
+      size: 92
     - path: reports/fasttext-fi-kirjaesittelyt2021.json
       hash: md5
-      md5: 8557276f66c15738048271a5890256ea
+      md5: ef7ce6ec4e6d3448b0fa561e3c8bbbee
       size: 93
     - path: reports/fasttext-fi-kirjastonhoitaja.json
       hash: md5
-      md5: 1f88e3fc726015d206d9323c3b4efab3
-      size: 92
+      md5: 0055432e1188a3118e4708a2a50e6609
+      size: 94
     - path: reports/fasttext-fi-satakunnan-kansa.json
       hash: md5
-      md5: c9e037fb4399ee097b07318090a503fa
-      size: 94
+      md5: 6d8a3f7ed0d58b19f446ba335da7c280
+      size: 93
     - path: reports/fasttext-fi-vapaakappaleet-orig.json
       hash: md5
-      md5: 52c838f448cf38789a5a73e72eb121c5
-      size: 93
+      md5: 87568a8fa4652c200c7c8a8ce0268798
+      size: 94
   eval-fi@mllm-fi:
     cmd:
     - venv/bin/annif eval yso-mllm-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/mllm-fi-jyu-theses.json
@@ -1234,17 +1234,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/fi
       hash: md5
-      md5: 0fe8c48afc24e8c843a78fd6d76609a4.dir
-      size: 385776340
+      md5: 9340f82e18940abac4eff8e4c4a9acfd.dir
+      size: 385777175
       nfiles: 7267
     - path: data/projects/yso-mllm-fi
       hash: md5
-      md5: fb05a7c1e6b2ed72fee85fbbc5b7374b.dir
-      size: 36157873
+      md5: d9c87004b964660650f8962c9b59d7bb.dir
+      size: 35176094
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1260,24 +1260,24 @@ stages:
     outs:
     - path: reports/mllm-fi-jyu-theses.json
       hash: md5
-      md5: e6a84d414ed22b9d9d3fee4a7d955d85
+      md5: 1291b60639edb4a2fa56af055220f4d9
       size: 92
     - path: reports/mllm-fi-kirjaesittelyt2021.json
       hash: md5
-      md5: 6f2cb724ae31fb838b22731c460974d2
-      size: 94
+      md5: 3e25f4a5cda3fab9425c3b85c2d29a4f
+      size: 95
     - path: reports/mllm-fi-kirjastonhoitaja.json
       hash: md5
-      md5: 3247bcd04d35ffb318d7e48666a90976
-      size: 94
+      md5: 7f43159c156ee06bf1b6e3fa7fafab22
+      size: 93
     - path: reports/mllm-fi-satakunnan-kansa.json
       hash: md5
-      md5: 016830e79dfffc8d5ea99fa523e31ba2
+      md5: 75c7da5f11c728acf6b41f98e34f8f7f
       size: 93
     - path: reports/mllm-fi-vapaakappaleet-orig.json
       hash: md5
-      md5: aa637226b7c53ecea64bca339d20687c
-      size: 93
+      md5: ca6c2fe8c34739c5b67897948a0eafec
+      size: 95
   eval-fi@bonsai-fi:
     cmd:
     - venv/bin/annif eval yso-bonsai-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/bonsai-fi-jyu-theses.json
@@ -1293,17 +1293,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/fi
       hash: md5
-      md5: 0fe8c48afc24e8c843a78fd6d76609a4.dir
-      size: 385776340
+      md5: 9340f82e18940abac4eff8e4c4a9acfd.dir
+      size: 385777175
       nfiles: 7267
     - path: data/projects/yso-bonsai-fi
       hash: md5
-      md5: 84a1ae3ca24702d0cbb901f3215e1675.dir
-      size: 5354349482
+      md5: d92cd49e776d15bd8e16ff8e80b6c67c.dir
+      size: 5384831158
       nfiles: 6
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1324,24 +1324,24 @@ stages:
     outs:
     - path: reports/bonsai-fi-jyu-theses.json
       hash: md5
-      md5: 76e3cc2484c71e18d965fdd4acd1ba8a
-      size: 93
+      md5: e99017486bc1387ba63180fb4ae1ab17
+      size: 92
     - path: reports/bonsai-fi-kirjaesittelyt2021.json
       hash: md5
-      md5: f2987884156a29aa053ad510993e74a2
-      size: 94
+      md5: 687206a5b0e0377111e246430611c002
+      size: 92
     - path: reports/bonsai-fi-kirjastonhoitaja.json
       hash: md5
-      md5: f12f961721bb62fb1a9e94e5d2636aec
-      size: 92
+      md5: cf061fc3ac54e3b0a4d293fff48e5724
+      size: 93
     - path: reports/bonsai-fi-satakunnan-kansa.json
       hash: md5
-      md5: ad6ad6e95073021b40aaa643171e5773
+      md5: 1ee759c52ed9807ed3480dd4a6d53127
       size: 93
     - path: reports/bonsai-fi-vapaakappaleet-orig.json
       hash: md5
-      md5: 5904dff99322d3b6019d9d7a1aa7cd8b
-      size: 93
+      md5: 774c3de15f3d3528e06840be6146481b
+      size: 94
   eval-en@mllm-en:
     cmd:
     - venv/bin/annif eval yso-mllm-en -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-en-abo-theses.json
@@ -1355,17 +1355,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/en
       hash: md5
-      md5: f1883db613d00c7bce08a1211787f984.dir
-      size: 332654375
+      md5: 0f6ff94585d8a7bb2d86601b85a0469c.dir
+      size: 332654303
       nfiles: 3831
     - path: data/projects/yso-mllm-en
       hash: md5
-      md5: 129793bd06d231413a66ed5611180dbe.dir
-      size: 39175771
+      md5: 20a3d8e02c8c7381539558f424515cf5.dir
+      size: 39304442
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1381,20 +1381,20 @@ stages:
     outs:
     - path: reports/mllm-en-abo-theses.json
       hash: md5
-      md5: 45509a75f80910070d39b864ba64bdc4
-      size: 90
+      md5: 4bc7bdbfe053fae6f17ac1d31afce100
+      size: 93
     - path: reports/mllm-en-jyu-theses.json
       hash: md5
-      md5: 0cc98fc0e98ec579ae7acd1bcc1c9cde
+      md5: 47ba4955f5df771c02faf97ec75c002a
       size: 93
     - path: reports/mllm-en-kirjaesittelyt2021.json
       hash: md5
-      md5: b2a3cec2dc5e54321c6365324f2f616e
-      size: 92
+      md5: 564767c58810e68d17f59fdf9f0329d5
+      size: 93
     - path: reports/mllm-en-vapaakappaleet-orig.json
       hash: md5
-      md5: c36acbab1e4a06d010ae7ecd8e961406
-      size: 93
+      md5: dbddcaf6f49d406861d8bdca20911861
+      size: 92
   eval-sv@bonsai-sv:
     cmd:
     - venv/bin/annif eval yso-bonsai-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/bonsai-sv-abo-theses.json
@@ -1408,17 +1408,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/sv
       hash: md5
-      md5: 8424019ec4c261915627865324ac2f73.dir
-      size: 66737727
+      md5: deaec938e8f2d753575ec5f382c6e571.dir
+      size: 66738091
       nfiles: 1878
     - path: data/projects/yso-bonsai-sv
       hash: md5
-      md5: 77a54001b5d18a7a474bcf7d4e9577e1.dir
-      size: 1029311381
+      md5: bfb4cab000b6ac7acaf1980498527af1.dir
+      size: 1070339052
       nfiles: 6
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1439,20 +1439,20 @@ stages:
     outs:
     - path: reports/bonsai-sv-abo-theses.json
       hash: md5
-      md5: c96c3200961b7e9e12ef94ce0a09623d
-      size: 92
+      md5: ace60fed9f9bdbcf598652170f535544
+      size: 93
     - path: reports/bonsai-sv-jyu-theses.json
       hash: md5
-      md5: 6db98665f360001f8647af363fb38ff4
+      md5: b085a7c7ff9fb43d7494b0e62cd1e82f
       size: 91
     - path: reports/bonsai-sv-kirjaesittelyt2021.json
       hash: md5
-      md5: 8937047ce1e09f29306cfd2f5d1b0a68
+      md5: cd70f2dea7147d30a9cf43af5fb99077
       size: 92
     - path: reports/bonsai-sv-vapaakappaleet-orig.json
       hash: md5
-      md5: 1bf7c202c1be124aa26fa510900020b5
-      size: 93
+      md5: daef9ae14c94d27c9ad5104743b0b727
+      size: 91
   eval-sv@mllm-sv:
     cmd:
     - venv/bin/annif eval yso-mllm-sv -j 1 -m F1@5 -m NDCG --metrics-file reports/mllm-sv-abo-theses.json
@@ -1466,17 +1466,17 @@ stages:
     deps:
     - path: corpora/fulltext-test/sv
       hash: md5
-      md5: 8424019ec4c261915627865324ac2f73.dir
-      size: 66737727
+      md5: deaec938e8f2d753575ec5f382c6e571.dir
+      size: 66738091
       nfiles: 1878
     - path: data/projects/yso-mllm-sv
       hash: md5
-      md5: 88dd945c235bdfc4549fa44f5ea582a4.dir
-      size: 19736546
+      md5: 98e8aeab9ba2607738c19ab96f1aeed3.dir
+      size: 18606829
       nfiles: 2
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
@@ -1492,20 +1492,20 @@ stages:
     outs:
     - path: reports/mllm-sv-abo-theses.json
       hash: md5
-      md5: 7b95bec0ae5f0a4346b5ded0c7adfab8
+      md5: 8134db54c876495d9435f6e11ac74d6e
       size: 92
     - path: reports/mllm-sv-jyu-theses.json
       hash: md5
-      md5: c6f2150aebf21e4ddb8d1ebade0aefa5
-      size: 91
+      md5: 9a9f433cfa4ba36c22f9f28fafe1dc36
+      size: 92
     - path: reports/mllm-sv-kirjaesittelyt2021.json
       hash: md5
-      md5: ddddbc0b9097fea43c34b5133e2b24ae
+      md5: e18f8a03f3012a3d3cb86fb1bdb0eceb
       size: 93
     - path: reports/mllm-sv-vapaakappaleet-orig.json
       hash: md5
-      md5: 7511ffde5122627168bb00855fe0e4e6
-      size: 92
+      md5: 0239adea964e4758024805204a193c7f
+      size: 94
   eval-fi@fi:
     cmd:
     - venv/bin/annif eval yso-fi -j 10 -m F1@5 -m NDCG --metrics-file reports/fi-jyu-theses.json
@@ -1521,22 +1521,22 @@ stages:
     deps:
     - path: corpora/fulltext-test/fi
       hash: md5
-      md5: 0fe8c48afc24e8c843a78fd6d76609a4.dir
-      size: 385776340
+      md5: 9340f82e18940abac4eff8e4c4a9acfd.dir
+      size: 385777175
       nfiles: 7267
     - path: data/projects/yso-fi
       hash: md5
-      md5: a0961bd4dfcfee8367b22ad17d780dbb.dir
-      size: 1259460957
+      md5: 0e4432583c3cd7433b357039c8727ff5.dir
+      size: 1262359045
       nfiles: 3
     - path: venv-installed
       hash: md5
-      md5: 829dcd06bff073c054d28bb526b8b16f
+      md5: c4a4a68e7c53a588f9a34b65406b3207
       size: 48
     params:
       projects.toml:
         yso-fi:
-          name: YSO suomi (2023.1.Ghosha)
+          name: YSO suomi (2024.2.Ikhwan-al-Safa)
           language: fi
           backend: nn_ensemble
           sources: yso-mllm-fi:0.1492,yso-fasttext-fi:0.6090,yso-bonsai-fi:0.2418
@@ -1548,21 +1548,21 @@ stages:
     outs:
     - path: reports/fi-jyu-theses.json
       hash: md5
-      md5: f60303e36e729af9a6ba5fea084b440e
-      size: 91
+      md5: e960394d4d75a994661be2652085601c
+      size: 92
     - path: reports/fi-kirjaesittelyt2021.json
       hash: md5
-      md5: e9ee9149f010d08d85bf4869644e25b8
+      md5: 718f1115da30de3342c8d7ba3769d757
       size: 94
     - path: reports/fi-kirjastonhoitaja.json
       hash: md5
-      md5: dec9471c35e4fef43ab484c4fd6ab0b3
-      size: 91
+      md5: fc920185195f4b95e335bebfb85aaf6b
+      size: 93
     - path: reports/fi-satakunnan-kansa.json
       hash: md5
-      md5: 73c32b1eae7f182e1204f65b13022929
-      size: 93
+      md5: 4c6bff8566be1b57b8cfb6b2d9395223
+      size: 94
     - path: reports/fi-vapaakappaleet-orig.json
       hash: md5
-      md5: 50921e6a32b8d391ccfd01d55cbd23be
-      size: 94
+      md5: 6b481bb9a4d66255fd03022017d88c07
+      size: 92

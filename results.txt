@@ -1,0 +1,28 @@
+lang	test_set	documents	bonsai	en	fasttext	fi	mllm	sv
+abo	theses	69		0.35863				
+abo	theses	107						0.38157
+en	abo-theses	69	0.3054		0.20503		0.34342	
+en	vapaakappaleet-orig	1048	0.45254		0.28405		0.25674	
+en	jyu-theses	301	0.5281		0.25546		0.30491	
+en	kirjaesittelyt2021	447	0.47022		0.32929		0.20199	
+fi	jyu-theses	766	0.47928		0.30858		0.44304	
+fi	satakunnan-kansa	200	0.27276		0.22726		0.21387	
+fi	kirjaesittelyt2021	1311	0.46373		0.37183		0.22743	
+fi	vapaakappaleet-orig	1040	0.45912		0.31938		0.36807	
+fi	kirjastonhoitaja	312	0.28066		0.25451		0.33001	
+jyu	theses	32						0.54707
+jyu	theses	301		0.53192				
+jyu	theses	766				0.52125		
+kirjaesittelyt2021.json		447		0.46395				
+kirjaesittelyt2021.json		1311				0.47212		
+kirjaesittelyt2021.json		560						0.48589
+kirjastonhoitaja.json		312				0.40927		
+satakunnan	kansa	200				0.30209		
+sv	kirjaesittelyt2021	560	0.46583		0.34727		0.2005	
+sv	jyu-theses	32	0.51146		0.34786		0.40064	
+sv	abo-theses	107	0.30393		0.22665		0.37477	
+sv	vapaakappaleet-orig	176	0.49706		0.32061		0.28697	
+vapaakappaleet	orig	1040				0.49104		
+vapaakappaleet	orig	176						0.50591
+vapaakappaleet	orig	1048		0.47304				
+
