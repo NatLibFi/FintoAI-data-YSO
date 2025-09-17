@@ -1,11 +1,11 @@
-md5: 7aea909abe5f4ec371579a849f497b99
+md5: bedc02ce29f654be8acc3fbeccf75a8c
 deps:
-- md5: a2c3d85f647c3124aa4cf9a53f2e28fe
-  size: 100290122
+- md5: b00de3ffd32fba8c4a74469a1a7979f6
+  size: 100540760
   path: /data/Annif-corpora/training/yso-finna-fi-03.tsv.gz
   hash: md5
 outs:
-- md5: a2c3d85f647c3124aa4cf9a53f2e28fe
-  size: 100290122
+- md5: b00de3ffd32fba8c4a74469a1a7979f6
+  size: 100540760
   path: yso-finna-fi-03.tsv.gz
   hash: md5

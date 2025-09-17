@@ -1,13 +1,13 @@
-md5: 5584f6028338af36cae83abd664118ab
+md5: 8350570cfe409240e74236a1626d6b50
 deps:
-- md5: 0e9ed92e85e9326a2c0999ab71369d7f.dir
-  size: 844863784
+- md5: a7740bdd7cc85e468cce4d8dc4cae0f1.dir
+  size: 844863826
   nfiles: 1343
   path: /data/Annif-corpora-local/fulltext-train/en/abo-theses
   hash: md5
 outs:
-- md5: d78b0b9e82cdbcb2672195a89eccdfe9.dir
-  size: 47738257
+- md5: 019fc40cfebb47965beb2e8e8707799e.dir
+  size: 47738299
   nfiles: 997
   path: abo-theses
   hash: md5
